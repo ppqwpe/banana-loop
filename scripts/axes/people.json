@@ -1,0 +1,425 @@
+{
+ "name": "people",
+ "title": "인물·라이프스타일 — 작업자·팀·사용 장면",
+ "kinds": [
+  "por",
+  "work",
+  "team",
+  "hand"
+ ],
+ "default_kind": "work",
+ "kind_rules": {
+  "por": [
+   "인물",
+   "프로필",
+   "초상",
+   "직원",
+   "사원",
+   "대표",
+   "portrait",
+   "staff",
+   "headshot",
+   "profile"
+  ],
+  "work": [
+   "작업",
+   "현장",
+   "근무",
+   "사용",
+   "시연",
+   "조작",
+   "worker",
+   "working",
+   "using",
+   "task"
+  ],
+  "team": [
+   "팀",
+   "단체",
+   "회의",
+   "동료",
+   "협업",
+   "그룹",
+   "team",
+   "meeting",
+   "group",
+   "crew"
+  ],
+  "hand": [
+   "손",
+   "손동작",
+   "파지",
+   "디테일",
+   "접사",
+   "클로즈",
+   "hand",
+   "hands",
+   "detail",
+   "macro"
+  ]
+ },
+ "finish": [
+  "large-format digital capture, fine natural grain, pores and skin texture fully retained, no smoothing pass",
+  "spherical prime lens, honest geometry, gentle highlight roll-off across the forehead and cheek, no digital sharpening",
+  "modern cinema camera with wide latitude, detail held at once in dark hair and in a bright shirt",
+  "high-resolution stills capture, true edge-to-edge sharpness, every fabric weave and stray hair strand legible",
+  "documentary reportage stills, natural contrast curve, colour as the eye saw it, nothing pushed",
+  "medium-format portrait capture at base ISO, absolute clarity in the eyes and lashes, skin left unretouched",
+  "available-light reportage at working ISO, a little honest grain in the shadows, natural skin rendering with no beauty pass"
+ ],
+ "no_text": "Render every lanyard, ID badge, name patch, cap front, hi-vis panel, hard-hat sticker, chest print, monitor, whiteboard, clipboard sheet, mug and carton as a CLEAN BLANK SURFACE. Absolutely no text, no letters, no Korean hangul, no numbers, no logos, no wordmarks anywhere in the image. Keep the shape, size, colour and position of the badge, patch, screen and label, but leave them empty.",
+ "negative": "text, lettering, letters, words, typography, Korean hangul, numbers, signage text, logo, wordmark, brand name, captions, subtitles, watermark, garbled writing, extra fingers, malformed hands, distorted face, altered identity, plastic skin, over-smoothed skin, beauty-filter look, swapped person, changed face shape, reshaped body, altered proportions, airbrushed pores, waxy retouching, uncanny doll eyes, mismatched hands, duplicated limbs, floating limbs, fashion-glamour posing, stock-photo grin, 3D render, CGI, game engine, cartoon, illustration, blown-out highlights, dull washed-out colour",
+ "ignore": [
+  "the reference's camera angle and eyeline height",
+  "the reference's framing and crop",
+  "the reference's background, background clutter and accidental bystanders",
+  "the reference's time of day, weather and window light",
+  "all text, lettering, badge printing and logos in the reference",
+  "flat on-camera flash and overhead fluorescent lighting",
+  "phone-camera look, jpeg compression and noise",
+  "any retouching already applied to the reference — smoothed skin, whitened teeth, reshaped outlines",
+  "cluttered accidental framing, soft corners and vignette",
+  "ignore all of the above and nothing more: the people themselves are never on this list — every face, identity, apparent age, body, skin tone, ethnicity, hair and gender in the reference is fixed and carries through unchanged"
+ ],
+ "materials": {
+  "treatment": "real skin with visible pores, fine lines, stubble, uneven tone and whatever blemishes and marks the reference already carries; hair with flyaway strands and honest sheen; fabric with weave, creases, seams and wash-fade; workwear with dust, ink marks and worn cuffs; hands with knuckle lines, short nails and working callus",
+  "condition": "worn in and honestly used, never styled smooth or retouched"
+ },
+ "focus": "sharp on the eyes when the face is in frame and on the point of contact when it is not, natural lens depth of field, no fake background blur, no cut-out edges",
+ "still": {
+  "B": "the subject holds still and holds the look; nothing else in the frame moves and nobody else enters it",
+  "H": "everything held — the shape stays put, no motion, nobody crossing the bright opening behind"
+ },
+ "moment": {
+  "por": {
+   "calm": [
+    "mid-sentence, about to finish the thought",
+    "glancing up from the work toward the lens",
+    "just settled into position, one hand still resting on the bench",
+    "a pause between two tasks, weight shifting onto one foot"
+   ],
+   "busy": [
+    "turning as someone calls from off-frame while colleagues pass behind",
+    "answering a question with the part they were checking still in hand",
+    "stepping into position while the floor keeps working behind them",
+    "handing something off to the side without breaking the look to camera"
+   ]
+  },
+  "work": {
+   "calm": [
+    "reaching for a tool already within arm's length",
+    "making the last adjustment, everything else at rest",
+    "reading a value off the panel before touching anything",
+    "setting a part down and letting go of it"
+   ],
+   "busy": [
+    "sealing a carton while the next one arrives at the elbow",
+    "calling a measurement across to someone off-frame mid-task",
+    "working through the step while two colleagues move behind",
+    "swapping a full tray for an empty one without stopping"
+   ]
+  },
+  "team": {
+   "calm": [
+    "one person mid-sentence, the others turned toward them",
+    "a sheet sliding across the table from one pair of hands to another",
+    "the group settling around the bench, the last one still standing",
+    "one member glancing up while the rest stay on the work"
+   ],
+   "busy": [
+    "two conversations running at once around the same table",
+    "someone stepping into the group as another steps out",
+    "walking and talking down the aisle, the group moving together",
+    "everyone reaching in over the same drawing at the same moment"
+   ]
+  },
+  "hand": {
+   "calm": [
+    "fingers closing on the tool a moment before the work starts",
+    "one hand steadying the part while the other stays still",
+    "the last turn of the fastener, nothing else moving",
+    "a hand withdrawing from frame, leaving the object set down"
+   ],
+   "busy": [
+    "both hands working while the next item comes in from the edge",
+    "a second pair of hands entering frame to take the piece",
+    "running the seal down the carton with the next box already sliding in",
+    "hands moving fast enough to just begin to blur at the fingertips"
+   ]
+  }
+ },
+ "modes": [
+  {
+   "letter": "A",
+   "kor": "환경인물",
+   "name": "formal environmental portrait",
+   "life": "calm",
+   "direction": "The considered portrait of one person in the place they actually work. Long lens, formal distance, the workplace present but held back behind them.",
+   "licence": "restage the background, choose a cleaner standing position and a better working distance; wardrobe colour may be resolved only where the reference is ambiguous. The person's face, identity, apparent age, body, skin tone, ethnicity and gender are LOCKED and carry through from the reference unchanged.",
+   "light": "one large soft key from a window or a bounced source at 45 degrees, a soft fall across the far cheek, the workplace behind sitting two stops down",
+   "cam": {
+    "por": "lens dead level with the subject's eyeline, standing well back across the room so the workplace compresses behind them, half-length, 105mm feel",
+    "work": "level with the eyeline, three-quarter from the side of the task, subject half-length with the work held in the near frame, 85mm feel",
+    "team": "level with the group's average eyeline, stepped back so the row reads as one band, waist-up, 85mm feel",
+    "hand": "dropped below the eyeline to the level of the hands, standing back and reaching in with the lens, hands and tool tight in frame, 100mm feel"
+   },
+   "looks": [
+    [
+     "late morning, a tall window down one side of the room, dry still air",
+     "natural warm key against a cool neutral interior, restrained saturation, deep neutral blacks"
+    ],
+    [
+     "overcast afternoon, even light through a full glass wall",
+     "cool-neutral base with one warm accent behind, soft filmic contrast, blacks lifted a touch"
+    ],
+    [
+     "late afternoon, low sun bounced off a pale wall onto the subject",
+     "warm soft key rolling off gently, shadows kept open and slightly blue, nothing pushed"
+    ]
+   ],
+   "compo": [
+    "subject off-centre on a third, the depth of the workplace running out past the opposite shoulder",
+    "half-length with generous headroom, the background compressed into a narrow band of tone",
+    "a real foreground edge — a bench corner, a machine flank — cutting the lower corner while the subject holds the open middle"
+   ]
+  },
+  {
+   "letter": "B",
+   "kor": "정면프로필",
+   "name": "flat frontal corporate register",
+   "life": "none",
+   "direction": "The frame that goes on the team page. Square-on, evenly lit, formal and legible, nothing happening around it.",
+   "licence": "tidy the scene: clear accidental clutter, plain the wall behind, straighten the collar; wardrobe colour may be resolved only where the reference is ambiguous. The person's face, identity, apparent age, body, skin tone, ethnicity and gender are LOCKED and carry through from the reference unchanged.",
+   "light": "clean broad frontal key with a soft fill just beneath it, an even background wash, no muddy shadow, a catchlight square in both eyes",
+   "cam": {
+    "por": "dead level with the subject's eyeline, square-on, head and shoulders centred with even margins, 85mm feel",
+    "work": "level with the eyeline, square-on to both the subject and the task, waist-up and centred, 85mm feel",
+    "team": "level with the group's average eyeline, square-on, the row centred and symmetrical, 70mm feel",
+    "hand": "just below the eyeline, square-on and level with the hands, hands centred on a clean plane, 100mm feel"
+   },
+   "looks": [
+    [
+     "indoors, the room light fully controlled, still air",
+     "clean neutral white balance, whites truly white, controlled highlights, no colour cast"
+    ],
+    [
+     "bright overcast through a north window, shadowless and even",
+     "cool-neutral base, precise contrast, restrained saturation, honest skin tone"
+    ],
+    [
+     "early morning, the office lights on and the blinds half drawn",
+     "warm neutral with a gentle golden lift in the highlights, immaculate blacks"
+    ]
+   ],
+   "compo": [
+    "head and shoulders centred, even margins on both sides, the eyeline on the upper third",
+    "strict symmetry against a plain wall, the subject squared to the frame",
+    "centred with generous space above the head, the background falling into flat even tone"
+   ]
+  },
+  {
+   "letter": "C",
+   "kor": "관찰기록",
+   "name": "observed candid",
+   "life": "busy",
+   "direction": "Photograph the work as a documentary photographer standing inside it would — from a colleague's distance, unposed, nothing arranged for the lens. The subject is doing the job, not presenting it.",
+   "licence": "restage camera position and background only, and add movement and additional people of the same kind already present in the reference. The person's face, identity, apparent age, body, skin tone, ethnicity and gender are LOCKED and carry through from the reference unchanged.",
+   "light": "the room's own available light — whatever mix of window and fixture is already there — left uncorrected",
+   "cam": {
+    "por": "a little below the subject's eyeline at chest height, three-quarter from a step to one side, half-length, 50mm feel",
+    "work": "at eyeline, standing where a colleague would stand, subject caught in a natural gap between things, 35mm feel",
+    "team": "at eyeline, moving among the group rather than standing in front of them, 35mm feel",
+    "hand": "eyeline dropped to the hands at natural working distance, no closer than an arm's length, 50mm feel"
+   },
+   "looks": [
+    [
+     "mid-shift, window light down one side and ceiling fixtures on the other",
+     "honest mixed white balance left uncorrected, natural contrast, colour as the eye saw it"
+    ],
+    [
+     "early shift, cold outside light spilling in through an open door",
+     "a cool daylight wedge cutting into a warm interior, restrained saturation"
+    ],
+    [
+     "late afternoon, the sun off the windows and the fixtures carrying the room",
+     "warm ambient against cool shadow, gentle contrast, a little grain in the dark areas"
+    ]
+   ],
+   "compo": [
+    "the subject caught off-centre through a gap between foreground objects",
+    "the frame very slightly off level, as if glanced at rather than composed",
+    "people and equipment overlapping at several depths, no clean separation between them"
+   ]
+  },
+  {
+   "letter": "D",
+   "kor": "어깨너머",
+   "name": "over-the-shoulder into the task",
+   "life": "busy",
+   "direction": "Put the viewer directly behind the person and looking at what they are looking at. The near shoulder anchors the frame and the work is the brightest, sharpest thing in it.",
+   "licence": "restage the task surface and what surrounds it, and add colleagues of the same kind already present working beyond the shoulder. The person's face, identity, apparent age, body, skin tone, ethnicity and gender are LOCKED and carry through from the reference unchanged.",
+   "light": "the source sits beyond the task so the near shoulder falls away into shadow and the work is the brightest thing in the frame",
+   "cam": {
+    "por": "just above and behind the subject's shoulder, the back of the head soft in the near frame, their face turning into profile beyond, 50mm feel",
+    "work": "just above the subject's eyeline and behind them, the shoulder holding the near third, the task sharp beyond it, 35mm feel",
+    "team": "at eyeline over the near colleague's shoulder, the rest of the team facing back across the table into the lens, 35mm feel",
+    "hand": "from just above eyeline looking down over the shoulder onto the hands, 50mm feel"
+   },
+   "looks": [
+    [
+     "mid-morning, a task lamp and a window both landing on the work",
+     "a warm pool on the task against a cooler dim near frame, natural contrast"
+    ],
+    [
+     "night shift, overhead fixtures and a screen throwing its own light back",
+     "cool screen light on hands and face against deep neutral shadow, restrained saturation"
+    ],
+    [
+     "afternoon, a bright bay door standing open beyond the bench",
+     "a bright background wedge behind a dark near shoulder, honest colour, wide tonal range"
+    ]
+   ],
+   "compo": [
+    "the shoulder and upper arm holding the near third out of focus, the task sharp beyond",
+    "the back of the head cutting the top corner, the work centred in the opening that remains",
+    "a diagonal running from the near shoulder down into the point of contact"
+   ]
+  },
+  {
+   "letter": "E",
+   "kor": "손끝디테일",
+   "name": "hands-only insert",
+   "life": "calm",
+   "direction": "The cutaway that shows the work itself. Faces are cropped away above the frame and the whole story is carried by hands, tool and material.",
+   "licence": "restage the surface, the tool placement and the surrounding props of the kind already present. Hands stay exactly as the reference shows them — no reshaping, no smoothing, no manicure; and the person's face, identity, apparent age, body, skin tone, ethnicity and gender are LOCKED and carry through unchanged.",
+   "light": "a soft raking key close in to the surface, low enough to draw out skin texture and material grain, with a small mirrored fill from the opposite side",
+   "cam": {
+    "por": "dropped well below the eyeline so the face sits out of frame above, cropped to chest, forearms and hands, 100mm feel",
+    "work": "below the eyeline at the level of the work surface, the person cropped to torso and hands, 85mm feel",
+    "team": "below the eyeline, several pairs of hands meeting over one surface, every face above the frame line, 85mm feel",
+    "hand": "level with the hands, a hand's breadth away, tool and fingertips filling the frame, 100mm macro feel"
+   },
+   "looks": [
+    [
+     "mid-morning, a window a metre from the bench",
+     "natural warm key with cool open shadow, restrained saturation, deep neutral blacks"
+    ],
+    [
+     "overcast, an even soft light with no strong direction of its own",
+     "cool neutral base with one warm material accent, soft contrast"
+    ],
+    [
+     "night, a single task lamp low over the bench",
+     "a warm pool falling off fast into a near-black surround, colour held only where the light lands"
+    ]
+   ],
+   "compo": [
+    "the hands filling the middle of the frame, the object entering from one edge",
+    "a diagonal of forearm running corner to corner with the point of contact on a third",
+    "the work surface reading as a flat plane, torso and face cropped away above frame"
+   ]
+  },
+  {
+   "letter": "F",
+   "kor": "공간속인물",
+   "name": "wide environmental scale",
+   "life": "busy",
+   "direction": "Show the workplace first and the person second. One figure small inside the volume of the room, giving the scale of everything around them.",
+   "licence": "EXPAND the workplace and add more people of the same kind already present, at other depths of the frame. The person's face, identity, apparent age, body, skin tone, ethnicity and gender are LOCKED and carry through from the reference unchanged.",
+   "light": "the whole space lit as it actually is — roof lights, bay openings, ceiling fixtures — with the figure standing in a slightly brighter patch than the rest",
+   "cam": {
+    "por": "well above the subject's eyeline from a walkway or upper level, the person small in the lower third of a wide room, 24mm feel",
+    "work": "above the eyeline and far back, the subject small against the full depth of the floor, 24mm feel",
+    "team": "above the group's eyeline from right across the space, the team a small cluster inside the room, 24mm feel",
+    "hand": "at eyeline but pulled all the way back from the hands to reveal the whole bay around them, 28mm feel"
+   },
+   "looks": [
+    [
+     "mid-morning, daylight coming down through roof lights across the whole floor",
+     "cool even ambient with warm fixture accents, wide tonal range, natural colour"
+    ],
+    [
+     "late afternoon, low sun reaching deep through an open door onto the floor",
+     "a warm wedge across a cool grey interior, strong depth, restrained saturation"
+    ],
+    [
+     "night shift, the space lit entirely by its own fixtures",
+     "amber pools against deep neutral shadow, quiet colour, blacks kept open"
+    ]
+   ],
+   "compo": [
+    "the figure small in the lower third with the structure of the workplace above and around them",
+    "the long lines of the room — aisles, benches, roof beams — running to a distant vanishing point past the figure",
+    "the figure placed exactly where two planes of tone meet so they read without being large"
+   ]
+  },
+  {
+   "letter": "G",
+   "kor": "팀구성",
+   "name": "group arrangement",
+   "life": "calm",
+   "direction": "Arrange several people so every one of them reads. Staggered depth, heads at different heights, nobody buried behind anybody else.",
+   "licence": "PLACE AND RESTAGE additional people of the same kind already present in the reference, and rearrange their spacing and depth; wardrobe colour may be resolved only where the reference is ambiguous. Every person's face, identity, apparent age, body, skin tone, ethnicity and gender are LOCKED and carry through from the reference unchanged — nobody is idealised, matched to anybody else, or replaced.",
+   "light": "one broad soft key covering the whole group evenly, everyone equally lit, nobody dropping into another person's shadow",
+   "cam": {
+    "por": "at the subject's eyeline, the single subject held on a third with colleagues placed at other depths behind, 70mm feel",
+    "work": "at eyeline, stepped back far enough that two or three people at different distances all read clearly, 50mm feel",
+    "team": "level with the group's average eyeline, three-quarter to the row so it staggers away in depth, waist-up, 70mm feel",
+    "hand": "a little below eyeline, two sets of hands from different people meeting on one surface, 85mm feel"
+   },
+   "looks": [
+    [
+     "late morning, a wide window filling the room from one side",
+     "natural warm key against a neutral interior, even skin rendering right across the group"
+    ],
+    [
+     "bright overcast outdoors on the apron, no hard shadow anywhere",
+     "cool neutral base, gentle contrast, restrained saturation"
+    ],
+    [
+     "late afternoon indoors, sun bounced off a pale wall across the whole row",
+     "soft warm light with open blue shadow, nothing pushed"
+    ]
+   ],
+   "compo": [
+    "a staggered line at three depths, heads at different heights, nobody hidden",
+    "the group filling the middle band of the frame with air above and floor below",
+    "a loose arc around the shared object, the frame closing on the outermost shoulders"
+   ]
+  },
+  {
+   "letter": "H",
+   "kor": "역광실루엣",
+   "name": "backlit silhouette",
+   "life": "none",
+   "direction": "Shoot straight into the light so the person reads as shape and edge rather than detail. Mood and outline carry the frame; the face stays as the reference has it, simply held in shadow.",
+   "licence": "ATMOSPHERE may be added — haze, dust in the air, a bright opening behind — and the background restaged around the subject. No extra people, no movement. The person's face, identity, apparent age, body, skin tone, ethnicity and gender are LOCKED and carry through from the reference unchanged, whatever the shadow hides.",
+   "light": "hard backlight from a window, bay opening or low sun directly behind the subject, a blazing rim on hair and shoulders, the front near-black or lifted only by a faint bounce",
+   "cam": {
+    "por": "at the subject's eyeline, shooting into the light so they read as a rimmed dark shape, half-length, 85mm feel",
+    "work": "just below the eyeline, into the opening, the subject a dark shape against the bright plane, 50mm feel",
+    "team": "at the group's average eyeline, the row reading as dark shapes against the bright plane behind, 50mm feel",
+    "hand": "below the eyeline and level with the hands, backlit so the fingers are edged in light against a dark surround, 100mm feel"
+   },
+   "looks": [
+    [
+     "late afternoon, low sun coming straight in through the bay opening",
+     "deep contrast, near-black foreground, blazing warm rim, saturation only where the light lands"
+    ],
+    [
+     "morning, haze in the air catching the shafts from the roof lights",
+     "cool grey field with visible warm shafts, very wide dynamic range"
+    ],
+    [
+     "dusk, the interior dark and one bright opening standing behind the subject",
+     "near-monochrome cool base with a hot warm edge, extreme falloff"
+    ]
+   ],
+   "compo": [
+    "the subject as a dark shape held against the bright opening, the opening centred behind them",
+    "rim light drawing the whole outline while the interior detail stays closed down",
+    "the figure occupying the lower two-thirds with the bright plane above and behind"
+   ]
+  }
+ ]
+}

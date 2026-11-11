@@ -1,0 +1,21 @@
+# 쓰다가 생기는 것
+__pycache__/
+*.pyc
+*.tmp
+*.tmp-*
+.hf-rename-*
+node_modules/
+*.zip
+
+# 프로젝트별 산출물 — 레퍼 이미지 · 실행 파일 · 진단 기록은 올리지 않는다
+콘솔에_붙여넣기.js
+cuts.json
+_prompts.json
+higgsfield-diagnostics*.json
+*.png
+*.jpg
+*.jpeg
+*.webp
+
+# 로고는 올린다
+!logo/**/*.png

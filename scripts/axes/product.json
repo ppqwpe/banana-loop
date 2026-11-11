@@ -1,0 +1,425 @@
+{
+ "name": "product",
+ "title": "제품·오브젝트 — 패키지·기기·단품",
+ "kinds": [
+  "hero",
+  "group",
+  "det",
+  "situ"
+ ],
+ "default_kind": "hero",
+ "kind_rules": {
+  "hero": [
+   "단품",
+   "정면",
+   "제품",
+   "히어로",
+   "패키지",
+   "보틀",
+   "hero",
+   "product",
+   "pack",
+   "bottle"
+  ],
+  "group": [
+   "라인업",
+   "세트",
+   "구성",
+   "패밀리",
+   "전체컷",
+   "lineup",
+   "set",
+   "family",
+   "group",
+   "range"
+  ],
+  "det": [
+   "디테일",
+   "접사",
+   "클로즈",
+   "질감",
+   "소재",
+   "버튼",
+   "detail",
+   "close",
+   "macro",
+   "texture"
+  ],
+  "situ": [
+   "사용",
+   "연출",
+   "현장",
+   "착용",
+   "손",
+   "씬",
+   "usage",
+   "inuse",
+   "lifestyle",
+   "scene"
+  ]
+ },
+ "finish": [
+  "medium-format digital capture, fine natural grain, gentle roll-off into the speculars, no digital sharpening",
+  "spherical macro prime, honest geometry, slight halation where a specular burns, focus stacked so the whole object holds",
+  "modern cinema camera with wide latitude, texture held in the darkest surface and inside the brightest highlight",
+  "high-resolution capture with true edge-to-edge sharpness, no vignette, no corner softness, every moulding line clean",
+  "a touch of anamorphic character — a subtle horizontal flare across bright speculars, otherwise clean and undistorted",
+  "tripod at base ISO, absolute clarity, surface grain, print texture and micro-scratches all legible",
+  "documentary stills camera, natural contrast curve, colour matched to the real sample, nothing pushed"
+ ],
+ "no_text": "Render every label, carton panel, cap, dial face, screen, badge and moulded surface as a CLEAN BLANK SURFACE. Absolutely no text, no letters, no Korean hangul, no numbers, no logos, no wordmarks, no barcodes and no icons anywhere in the image. Keep the shape, size, colour, finish and position of the label and panel areas, but leave them empty.",
+ "negative": "text, lettering, letters, words, typography, Korean hangul, numbers, signage text, logo, wordmark, brand name, captions, subtitles, watermark, garbled writing, barcode, icons, dial markings, 3D render, CGI, clay shader, product cut-out pasted onto a flat backdrop, floating object with no contact shadow, missing or doubled reflection, warped ellipse on a cap or rim, melted moulding seam, invented buttons and extra parts, wrong scale beside the hand, waxy doll skin on hands, sticker-flat label, blown-out empty white void, dull washed-out colour, oversharpened halo, sensor dust and stray hairs",
+ "ignore": [
+  "the reference's camera angle",
+  "the reference's framing and crop",
+  "the reference's backdrop colour and studio sweep",
+  "the reference's lighting setup and shadow direction",
+  "all text, labels, barcodes and logos in the reference",
+  "cut-out white e-commerce background",
+  "phone-camera look and on-camera flash",
+  "jpeg compression and noise",
+  "clipped speculars and blown highlights",
+  "packing dust, lint and stray hairs left on the sample"
+ ],
+ "materials": {
+  "treatment": "real surface evidence — moulding seams and gate marks, brushed grain running one way, anodised sheen, cardboard fibre and print dot, the faint orange peel of a sprayed finish, micro-scratches on glass and metal",
+  "condition": "a real manufactured sample, handled and in service, not a render"
+ },
+ "focus": "the object held sharp wherever the frame calls for it, focus stacked rather than faked; any falloff comes from the real lens, never from a cut-out mask or an applied blur",
+ "still": {
+  "B": "the product alone and immaculate on the sweep, nothing entering the frame, nothing in motion",
+  "D": "nothing moves; the object stands alone and the shadow does all the work"
+ },
+ "moment": {
+  "hero": {
+   "calm": [
+    "the product standing alone and untouched, its cap set down beside it",
+    "the box open with the inner tray half withdrawn, nothing else in frame",
+    "one unit at rest with a single bead of condensation held on the glass",
+    "the lid resting slightly off true, everything else exact"
+   ],
+   "busy": [
+    "hands entering frame to open it, the wrapper still coming away",
+    "the product mid-pour, its contents running out of it",
+    "identical units stacked behind the hero with one being lifted clear",
+    "the unit turning on its base as a second one arrives into frame"
+   ]
+  },
+  "group": {
+   "calm": [
+    "the full range set out in a row, nothing being touched",
+    "one unit pulled forward out of the line, the rest square behind it",
+    "the set laid out complete with a single lid left off",
+    "identical units in ranks with one gap where one has been taken"
+   ],
+   "busy": [
+    "hands reaching in to take one unit out of the line",
+    "the row being rebuilt, units arriving from off frame",
+    "several units in motion at once while the rest hold formation",
+    "two of the range held up side by side and compared"
+   ]
+  },
+  "det": {
+   "calm": [
+    "the mechanism at rest, the seam closed",
+    "one drop held on the surface, not yet running",
+    "the button half depressed and holding there",
+    "the thread engaged a single turn, nothing moving"
+   ],
+   "busy": [
+    "fingers working the catch open, the parts separating",
+    "liquid running across the surface as it is poured",
+    "the hinge swinging through, its edge just beginning to blur",
+    "grains still falling past the surface after the pour"
+   ]
+  },
+  "situ": {
+   "calm": [
+    "the product sitting where it is used, its owner just out of frame",
+    "a coat over the chair and the product left on the counter",
+    "the device on the bench among the tools it belongs with, switched off",
+    "the bag packed and standing by the door, unattended"
+   ],
+   "busy": [
+    "someone using the product, their hands and forearms in frame",
+    "the product carried through the room with people passing behind",
+    "the device working on a busy bench as someone reaches past it",
+    "the object handed across frame from one person to another"
+   ]
+  }
+ },
+ "modes": [
+  {
+   "letter": "A",
+   "kor": "테이블탑",
+   "name": "tabletop hero",
+   "life": "calm",
+   "direction": "The straight commercial hero frame a tabletop photographer builds on a sweep. Describe the object honestly and legibly rather than dramatise it.",
+   "licence": "tidy and dress only: clear packing dust, straighten what should sit straight, place this same product's own cap, tray or a second identical unit behind it; never a different kind of object",
+   "light": "one large soft source high and behind the product with a white bounce filling the near face, a long soft gradient falling down the background, one controlled specular per surface",
+   "cam": {
+    "hero": "camera on a studio stand just above the product's shoulder line, three-quarter turn, base held clear of the bottom edge, 85mm feel",
+    "group": "camera on a stand slightly above the row, three-quarter across the line so each unit steps behind the last, 100mm feel",
+    "det": "camera on a rail at the height of the feature, three-quarter and close, the rest of the body falling away soft, 100mm feel",
+    "situ": "camera at the height of the surface the product sits on, three-quarter from a natural standing distance, the room soft behind, 50mm feel"
+   },
+   "looks": [
+    [
+     "studio daylight balance through heavy diffusion, a still room",
+     "natural colour with restrained saturation, clean neutral whites, a warm object against a cool grey sweep"
+    ],
+    [
+     "late-morning window light through a diffusion frame, air still",
+     "warm soft highlights rolling off gently, shadows open and slightly cool, nothing pushed"
+    ],
+    [
+     "overcast daylight bounced off a white wall, no direct sun anywhere",
+     "cool desaturated base with a single warm accent, soft filmic contrast, blacks lifted a touch"
+    ]
+   ],
+   "compo": [
+    "the product off-centre on a third, the background gradient falling away toward the opposite corner",
+    "clear near, middle and far separated by light rather than by blur, the base grounded by its own contact shadow",
+    "generous headroom above the product, the surface line low in frame"
+   ]
+  },
+  {
+   "letter": "B",
+   "kor": "정면팩샷",
+   "name": "square packshot",
+   "life": "none",
+   "direction": "The clean elevation the client puts on the page. Nothing is interpreted — the object sits square to the sensor, level, evenly lit and completely legible.",
+   "licence": "tidy the frame only: clear clutter, level everything, keep the ground a plain sweep; nothing is added and the subject is never swapped for a different kind of object",
+   "light": "even shadowless commercial light, large sources both sides and above, no muddy shadow, one restrained specular edge holding the form",
+   "cam": {
+    "hero": "camera on a rail dead square-on at the exact mid-height of the product, front face parallel to the sensor, even margins on all four sides, 100mm feel",
+    "group": "camera square-on at the mid-height of the row, every unit parallel to the sensor and evenly spaced, 135mm feel",
+    "det": "camera square-on to the feature plane, the panel centred and level, 100mm feel",
+    "situ": "camera square-on at the height of the surface, the product centred in a tidied real setting with even margins, 50mm feel"
+   },
+   "looks": [
+    [
+     "studio strobe on a white sweep, bright and shadowless",
+     "clean neutral white balance, crisp but never clinical, controlled speculars, no colour cast"
+    ],
+    [
+     "even fill on a mid-grey background, no direct source",
+     "cool-neutral base, precise contrast, whites truly white, restrained saturation"
+    ],
+    [
+     "warm-neutral studio light on a pale sand ground, still air",
+     "warm neutral with a gentle golden lift in the highlights, immaculate blacks"
+    ]
+   ],
+   "compo": [
+    "central symmetry, the object dead centre, equal margins left and right",
+    "the product centred with generous space above, the surface line on the lower third",
+    "strict horizontal banding — ground, product, contact shadow — in clean stacked zones"
+   ]
+  },
+  {
+   "letter": "C",
+   "kor": "부감플랫",
+   "name": "overhead flat-lay",
+   "life": "calm",
+   "direction": "Treat the object as pure geometry seen from directly above. Shape, edge and colour carry the frame and the surface becomes a flat graphic field.",
+   "licence": "EXPAND: lay out more of the same product with its own caps, trays, parts and packaging to fill the pattern; never a different kind of object",
+   "light": "even overhead light with one soft direction, shadow used as a graphic element rather than to model form",
+   "cam": {
+    "hero": "camera on an overhead boom directly above the product, sensor parallel to the table, the object centred and reading as a flat silhouette, 50mm feel",
+    "group": "boom directly overhead at greater height, the whole layout reading as a grid across the surface, 35mm feel",
+    "det": "boom straight down a hand's width above the feature, flat graphic top-down, 100mm feel",
+    "situ": "boom directly above the working surface, the product, the hands and the tools around it read as one flat pattern, 24mm feel"
+   },
+   "looks": [
+    [
+     "a broad overhead soft box, short shadows to one side, no ambient",
+     "saturated flat colour, graphic contrast, clean whites"
+    ],
+    [
+     "bright overcast through a skylight, all but shadowless",
+     "even desaturated base with strong accent colours reading as solid blocks"
+    ],
+    [
+     "a single directional overhead source, shadows laid out as part of the pattern",
+     "warm light and cool shadow alternating in strict rhythm"
+    ]
+   ],
+   "compo": [
+    "an all-over flat pattern with no horizon, the frame read as a single plane",
+    "one strong axis — an edge, a fold, a row of parts — dividing the layout in two",
+    "a grid of repeating units with one break in the rhythm as the focal point"
+   ]
+  },
+  {
+   "letter": "D",
+   "kor": "하드섀도",
+   "name": "hard single source",
+   "life": "none",
+   "direction": "One hard light and nothing else. The shadow is the graphic — the object is described by a single sharp edge of light and the black it throws across the ground.",
+   "licence": "the ground plane and background colour may be changed and the cast shadow lengthened or shaped; the object itself stays exactly as it is and is never swapped for a different kind of object",
+   "light": "a single bare hard source, undiffused, throwing one sharp-edged shadow, no fill at all, deep black shadow and one hot specular",
+   "cam": {
+    "hero": "camera on a boom above the product looking down at about forty-five degrees, the shadow running away from the base into the far corner, 65mm feel",
+    "group": "camera high on a boom at forty-five degrees across the row, each unit throwing an identical shadow in step, 85mm feel",
+    "det": "camera close and raking along the surface, the light skimming it so every ridge throws its own shadow, 135mm feel",
+    "situ": "camera at forty-five degrees above a real surface with direct sun cutting across it, the product's shadow drawn hard on the floor, 35mm feel"
+   },
+   "looks": [
+    [
+     "hard direct sun through a window at midday, dust hanging in the beam",
+     "high contrast, near-black shadow, saturation only where the light lands"
+    ],
+    [
+     "a single bare studio head, no fill, coloured paper ground",
+     "one hot key against a deep coloured field, crushed blacks, punchy saturation"
+    ],
+    [
+     "late afternoon sun raking almost horizontally across the surface",
+     "warm key with a long cool shadow, extreme falloff, restrained mid-tones"
+    ]
+   ],
+   "compo": [
+    "the object weighted to one side with its hard shadow occupying the opposite half",
+    "a bright pool of light in a dark surround, the eye pulled straight to the object",
+    "the shadow drawn as one long diagonal from the base to the corner of the frame"
+   ]
+  },
+  {
+   "letter": "E",
+   "kor": "극단접사",
+   "name": "extreme macro",
+   "life": "calm",
+   "direction": "Go closer than the eye ever does. One feature fills the frame — a seam, a thread, a weave, a knurl — and the material itself becomes the subject.",
+   "licence": "nothing may be added: only the surfaces already on this object, seen closer; never a different kind of object",
+   "light": "a small hard source raking across the surface at a shallow angle with a black card opposite, texture picked out in relief, everything beyond the feature falling to nothing",
+   "cam": {
+    "hero": "macro on a focus rail, lens a few centimetres from the product, one corner of it filling the whole frame, 100mm feel",
+    "group": "macro along the line of units so the nearest fills the frame and the rest fall away as a soft repeating stack, 200mm feel",
+    "det": "macro at minimum distance, the feature magnified past life size, the rest of the object gone from frame, 200mm feel",
+    "situ": "macro low over the working surface, the product's edge and the fingertip touching it filling the frame, 100mm feel"
+   },
+   "looks": [
+    [
+     "one small source skimming the surface, everything around it dark",
+     "deep contrast, colour concentrated in the lit sliver, blacks near empty"
+    ],
+    [
+     "a narrow shaft of window sun crossing the material, the room dark behind",
+     "warm raking key against cool shadow, restrained saturation, texture carrying the frame"
+    ],
+    [
+     "a hard point source close in with a black card opposite, dust visible in the air",
+     "near-monochrome with one saturated accent where the light catches"
+    ]
+   ],
+   "compo": [
+    "the feature running corner to corner as a diagonal, everything else falling to black",
+    "the frame filled edge to edge by a single surface, no context and no horizon",
+    "a sharp band of focus across the middle with the material dissolving above and below it"
+   ]
+  },
+  {
+   "letter": "F",
+   "kor": "저각히어로",
+   "name": "low wide hero",
+   "life": "busy",
+   "direction": "Shoot the object from below as if it were architecture. The camera sits on the deck centimetres from the base, the near edge looms and the product towers into the top of frame.",
+   "licence": "EXPAND: multiply the same product into ranks behind the hero, lift or suspend it, add motion of that same object; never a different kind of object",
+   "light": "strong low key with a hard rim separating the object from a dark ground, dramatic falloff, one bright source behind and above",
+   "cam": {
+    "hero": "camera flat on the deck a few centimetres from the base looking steeply up, the product filling the frame and running out of the top edge, 20mm feel",
+    "group": "camera on the deck at the head of the row, the near unit monumental with identical units receding behind it, 18mm feel",
+    "det": "camera on the surface almost touching the feature, looking up along it so the edge reads monumental against a dark field, 24mm feel",
+    "situ": "camera set on the real floor or bench surface looking steeply up past the product, the room converging above it, 18mm feel"
+   },
+   "looks": [
+    [
+     "a hard low key with haze in the air catching the beam",
+     "high-contrast warm key against cool shadow, rich saturated highlights, blacks crushed just short of empty"
+    ],
+    [
+     "one break of hard light landing on the object against a dark heavy ground",
+     "dramatic cool field against a hot lit subject, very wide dynamic range"
+    ],
+    [
+     "deep blue ambient with a single hard source burning behind the product",
+     "cool blue field punctuated by one intense warm source, cinematic falloff"
+    ]
+   ],
+   "compo": [
+    "converging verticals rising out of the top of frame, the base anchored low and close",
+    "the hero filling two-thirds of frame with identical units receding behind it",
+    "an aggressive diagonal with heavy foreground weight and a deep dark background"
+   ]
+  },
+  {
+   "letter": "G",
+   "kor": "손사용컷",
+   "name": "in hand, in use",
+   "life": "busy",
+   "direction": "Put the object in a working hand in a real room. The frame is about the act of using it — grip, scale, the way a body meets the object — not about the thing standing still.",
+   "licence": "PEOPLE AND MOTION may be added — hands, forearms, someone using or carrying it, the real room around them — but only ever this same product and never a different kind of object as the subject",
+   "light": "the room's own available light doing the work, a window on one side or the fixtures overhead, mixed colour temperature left uncorrected",
+   "cam": {
+    "hero": "handheld from just over the user's shoulder at their eye-line, the product held out in front of them, the room falling away behind, 35mm feel",
+    "group": "handheld at chest height as the units are carried and set down, several in frame at different distances, 28mm feel",
+    "det": "handheld close over the hands at working distance, the fingers and the feature they are working filling the frame, 50mm feel",
+    "situ": "handheld at standing eye-level a step back from the person, the product in use and the whole room reading around them, 28mm feel"
+   },
+   "looks": [
+    [
+     "mid-afternoon in a real room, window light from one side, nothing staged",
+     "warm skin against a cool ambient, honest mixed white balance left uncorrected"
+    ],
+    [
+     "early morning, cold light through the window with the lamps still burning",
+     "a cool daylight wedge cutting into a warm interior, natural colour"
+    ],
+    [
+     "evening indoors, the room lit only by its own fixtures",
+     "amber practicals against deep neutral shadow, restrained saturation"
+    ]
+   ],
+   "compo": [
+    "a forearm or shoulder holding the near third, the room opening out past it",
+    "the frame very slightly off level, the object caught off-centre as if glanced at",
+    "hands and product close and sharp with the depth of the room running away behind"
+   ]
+  },
+  {
+   "letter": "H",
+   "kor": "현장정물",
+   "name": "where it lives",
+   "life": "calm",
+   "direction": "Photograph the object where it actually sits when nobody is using it — the counter, the bench, the passenger seat, the shelf. The room is half the picture and it explains what the thing is for.",
+   "licence": "the real setting may be dressed with what already belongs in that room — the surface, the wall, the light through the window — along with more of the same product; the subject itself is never swapped for a different kind of object",
+   "light": "one window as the only source, soft and directional, the far side of the room falling into natural shadow",
+   "cam": {
+    "hero": "tripod at the height of the surface the product rests on, a step back so the wall and the surface read around it, 50mm feel",
+    "group": "tripod slightly above the surface looking along the row where the units are kept, the room soft behind, 50mm feel",
+    "det": "tripod close at surface height, the feature sharp and the room reduced to a soft field behind it, 135mm feel",
+    "situ": "tripod at standing eye-level from the doorway, the product small and correctly scaled in the middle of a real room, 35mm feel"
+   },
+   "looks": [
+    [
+     "late morning, one window carrying the whole room, the air still",
+     "natural colour with restrained saturation, warm surfaces against a cool shaded wall"
+    ],
+    [
+     "overcast afternoon, the window soft and even, no direct sun",
+     "cool desaturated base with a single warm accent, soft contrast, blacks lifted a touch"
+    ],
+    [
+     "the last of the daylight at the window, the room going quiet",
+     "warm window side rolling off into a cool blue interior, gentle falloff"
+    ]
+   ],
+   "compo": [
+    "the product small and off-centre on a third with the real surface reading across the lower half",
+    "the window edge and the wall dividing the frame into calm vertical bands",
+    "a real foreground object cutting the lower corner, the product held in the open middle"
+   ]
+  }
+ ]
+}

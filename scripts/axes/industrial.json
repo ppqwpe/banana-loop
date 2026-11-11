@@ -1,0 +1,556 @@
+{
+ "name": "industrial",
+ "title": "산업·시설 — 물류센터·공장·창고·사옥",
+ "kinds": [
+  "ext_air",
+  "ext_gnd",
+  "ext_det",
+  "int",
+  "obj",
+  "det"
+ ],
+ "default_kind": "int",
+ "kind_rules": {
+  "ext_air": [
+   "항공",
+   "드론",
+   "부지",
+   "aerial",
+   "drone",
+   "site"
+  ],
+  "ext_gnd": [
+   "외경",
+   "외부",
+   "전경",
+   "정면",
+   "야경",
+   "외관",
+   "exterior"
+  ],
+  "ext_det": [
+   "로고월",
+   "사인",
+   "간판",
+   "크라운",
+   "파사드",
+   "signage",
+   "facade",
+   "logo"
+  ],
+  "obj": [
+   "트럭",
+   "차량",
+   "지게차",
+   "제품",
+   "truck",
+   "vehicle",
+   "forklift",
+   "product"
+  ],
+  "det": [
+   "디테일",
+   "접사",
+   "클로즈",
+   "카톤",
+   "벨트",
+   "detail",
+   "close",
+   "macro"
+  ],
+  "int": [
+   "내부",
+   "통로",
+   "홀",
+   "라인",
+   "로비",
+   "작업",
+   "창고",
+   "충전",
+   "interior",
+   "aisle",
+   "hall",
+   "lobby"
+  ]
+ },
+ "finish": [
+  "large-format digital capture, fine natural grain, gentle highlight roll-off, no digital sharpening",
+  "spherical prime lens, honest geometry, slight halation where highlights burn, deep focus throughout",
+  "modern cinema camera with wide latitude, texture held in both the deepest shadow and the brightest window",
+  "high-resolution capture with true edge-to-edge sharpness, no vignette, no corner softness",
+  "a touch of anamorphic character — a subtle horizontal flare on bright sources, otherwise clean and undistorted",
+  "tripod at base ISO, absolute clarity, every surface texture legible",
+  "documentary stills camera, natural contrast curve, colour as the eye saw it, nothing pushed"
+ ],
+ "no_text": "Render every sign board, fascia, banner, panel and vehicle side as a CLEAN BLANK SURFACE. Absolutely no text, no letters, no Korean hangul, no numbers, no logos, no wordmarks anywhere in the image. Keep the shape, size, colour and position of the signage panels, but leave them empty.",
+ "negative": "text, lettering, letters, words, typography, Korean hangul, numbers, signage text, logo, wordmark, brand name, captions, subtitles, watermark, garbled writing, architectural scale model, diorama, miniature, tilt-shift, 3D render, game engine, CGI, toy-like plastic, invented buildings, unrelated machinery, blown-out sky, dull washed-out colour",
+ "ignore": [
+  "the reference's camera angle",
+  "the reference's framing",
+  "the reference's time of day and weather",
+  "all text, lettering and logos in the reference",
+  "flat fluorescent lighting",
+  "phone-camera look",
+  "jpeg compression and noise",
+  "blown or hazy sky",
+  "cluttered accidental framing",
+  "soft corners and vignette"
+ ],
+ "materials": {
+  "treatment": "real surface evidence — weathering, dust, panel discolouration, scuffed floors, tyre marks, roof units, cable runs",
+  "condition": "in service, not sterile"
+ },
+ "focus": "deep focus front to back, no tilt-shift, no fake background blur",
+ "still": {
+  "B": "the place immaculate and unpeopled, nothing in motion",
+  "J": "nothing moves; the place is empty and at rest"
+ },
+ "moment": {
+  "ext_air": {
+   "calm": [
+    "a single truck moving on the access road, everything else still",
+    "the shadows of high cloud drifting across the roofs",
+    "one loading bay open, all the others closed",
+    "a lone figure crossing the yard far below"
+   ],
+   "busy": [
+    "trucks queued along every dock, yard tractors moving between them",
+    "the full fleet parked in ranks with several pulling out at once",
+    "traffic running on the road and activity in every bay",
+    "the whole site working — vehicles, movement, doors open along its length"
+   ]
+  },
+  "ext_gnd": {
+   "calm": [
+    "one truck easing in through the gate, nobody else about",
+    "a single figure walking toward the entrance",
+    "a dock door open with a forklift just visible inside",
+    "a parked row of identical vehicles, completely still"
+   ],
+   "busy": [
+    "vehicles arriving and departing, staff crossing the apron",
+    "several trucks docked and loading at the same time",
+    "a line of identical trucks pulling through the gate one after another",
+    "the yard full and working, motion in every part of the frame"
+   ]
+  },
+  "ext_det": {
+   "calm": [
+    "nothing moves — the surface, the sky and the light only",
+    "the faint reflection of moving cloud crossing the panels",
+    "one open door far below giving the scale of the wall",
+    "the building running out of frame, quiet"
+   ],
+   "busy": [
+    "activity glimpsed far below at the base of the facade",
+    "vehicles passing at the foot of the wall, tiny against it",
+    "the facade repeating away with movement at ground level",
+    "workers small at the base, giving the scale of the whole plane"
+   ]
+  },
+  "int": {
+   "calm": [
+    "one worker moving through the far end, everything else steady",
+    "a single order picker parked mid-aisle",
+    "totes moving along the line with no one in frame",
+    "the aisle empty, the machinery running by itself"
+   ],
+   "busy": [
+    "workers along the line, parcels moving, a forklift crossing behind",
+    "every station occupied and the sorter running at full rate",
+    "several people at work at different depths of the frame",
+    "the whole floor in motion — belts, carts, people, machines"
+   ]
+  },
+  "obj": {
+   "calm": [
+    "the vehicle at rest and clean, nothing else moving",
+    "the cab door just open, no one in frame",
+    "one identical unit parked behind it",
+    "the vehicle stopped on a clean apron, engine off"
+   ],
+   "busy": [
+    "a rank of identical vehicles behind it, one pulling away",
+    "the fleet lined up with drivers moving between them",
+    "the vehicle mid-manoeuvre with others working around it",
+    "several identical units arriving in convoy"
+   ]
+  },
+  "det": {
+   "calm": [
+    "the object at rest, untouched, light only",
+    "a hand just leaving the edge of frame",
+    "the line stopped, everything in its place",
+    "one item slightly out of alignment, everything else exact"
+   ],
+   "busy": [
+    "hands working in frame and the line moving",
+    "items advancing past the lens with more coming behind",
+    "a worker's hands mid-action, motion just beginning to blur",
+    "the process running, the next item already entering frame"
+   ]
+  }
+ },
+ "modes": [
+  {
+   "letter": "A",
+   "kor": "시네마틱",
+   "name": "restrained cinematic",
+   "life": "calm",
+   "direction": "Photograph the place as a skilled cinematographer would on a real location — honest, grounded, human. Confident but never theatrical.",
+   "licence": "no additions: only what already exists in the reference",
+   "light": "the location's own available light, one soft directional key, natural contrast",
+   "cam": {
+    "ext_air": "eye-level from a nearby rise or upper floor, three-quarter, 35mm feel — grounded and human, not a drone shot",
+    "ext_gnd": "eye-level three-quarter from a natural standing position on the approach, 35mm feel",
+    "ext_det": "eye-level, standing back at a natural distance, the surface read in its full context, 50mm feel",
+    "int": "eye-level from where a person would actually stand in the aisle, three-quarter, 35mm feel",
+    "obj": "eye-level three-quarter from a normal walking distance, 50mm feel",
+    "det": "eye-level at natural working distance, 50mm feel"
+   },
+   "looks": [
+    [
+     "mid-morning, high thin cloud diffusing the sun, air clear",
+     "natural colour with restrained saturation, deep neutral blacks, warm surfaces against cool concrete"
+    ],
+    [
+     "late afternoon, sun low and unobstructed, dry still air",
+     "warm highlights rolling off gently, shadows kept open and slightly blue, nothing pushed"
+    ],
+    [
+     "overcast, an even soft sky, the ground still damp",
+     "cool desaturated base with a single warm accent, soft filmic contrast, blacks lifted a touch"
+    ]
+   ],
+   "compo": [
+    "off-centre subject on a third, a leading line entering from the opposite lower corner",
+    "clear foreground, midground and background separated by light rather than by blur",
+    "a real foreground object cutting the lower corner, the subject held in the open middle"
+   ]
+  },
+  {
+   "letter": "B",
+   "kor": "브랜드필름",
+   "name": "brand film hero",
+   "life": "none",
+   "direction": "The frame the client puts on their homepage. Formal, immaculate, everything reading proudly and clearly.",
+   "licence": "tidy the scene: clear accidental clutter, straighten what should be straight",
+   "light": "clean bright commercial lighting, directional but generous, no muddy shadows, everything legible",
+   "cam": {
+    "ext_air": "straight-on elevated frontal, subject centred and symmetrical, horizon dead level, 50mm feel",
+    "ext_gnd": "straight-on frontal, perfectly symmetrical, subject centred with even margins, 50mm feel",
+    "ext_det": "square-on to the surface, the panel centred and level, 85mm feel",
+    "int": "centred one-point down the exact middle of the space, perfectly symmetrical, 35mm feel",
+    "obj": "straight-on side elevation, subject centred and parallel to frame, 85mm feel",
+    "det": "square-on flat-lay, subject centred and level, 85mm feel"
+   },
+   "looks": [
+    [
+     "clear bright day, no cloud, midday clarity",
+     "clean neutral white balance, crisp but never clinical, controlled highlights, no colour cast"
+    ],
+    [
+     "bright overcast, shadowless and even",
+     "cool-neutral base, precise contrast, whites truly white, restrained saturation"
+    ],
+    [
+     "early morning, the sun just clearing the roofline, still air",
+     "warm neutral with a gentle golden lift in the highlights, immaculate blacks"
+    ]
+   ],
+   "compo": [
+    "central symmetry, the vanishing point dead centre, even margins on both sides",
+    "the subject centred with generous negative space above, horizon on the lower third",
+    "strict horizontal banding, the frame divided into clean stacked zones"
+   ]
+  },
+  {
+   "letter": "C",
+   "kor": "웅장스케일",
+   "name": "epic scale",
+   "life": "busy",
+   "direction": "Make the viewer feel the sheer size of the operation. Endless repetition running to a distant vanishing point, the subject small against the scale around it.",
+   "licence": "EXPAND: multiply what is already there — more of the same trucks, racking, bays, machines, vehicles, filling the frame toward the horizon. Never a different kind of thing.",
+   "light": "one very low sun raking across the whole expanse, long shadows measuring out the distance, deep haze in the far layers",
+   "cam": {
+    "ext_air": "very high wide aerial, far back, the whole site small within an immense frame, 24mm feel",
+    "ext_gnd": "pull far back and up to a high vantage, the building one element in a vast landscape, 24mm feel",
+    "ext_det": "pull all the way back so the surface becomes one bright plane on an enormous facade, 24mm feel",
+    "int": "from the highest point the building allows, looking down the full length of the hall to a distant vanishing point, 24mm feel",
+    "obj": "high and wide from far back, the subject one of many arrayed across a vast yard, 24mm feel",
+    "det": "pull all the way back to reveal the entire hall the object sits in, 24mm feel"
+   },
+   "looks": [
+    [
+     "golden hour, the sun very low, long shadows thrown across the whole site",
+     "warm amber key against cool blue shadow, deep atmospheric falloff, rich but never garish"
+    ],
+    [
+     "clear cold morning, low sun, distant layers of haze stacking up",
+     "cool blue distance against a warm foreground, strong aerial perspective"
+    ],
+    [
+     "late afternoon under high cloud, shafts breaking through in places",
+     "warm shafts against a desaturated ground, wide tonal range, restrained colour"
+    ]
+   ],
+   "compo": [
+    "the subject small in the lower fifth beneath an enormous sky",
+    "repetition receding to a distant vanishing point, rhythm carrying the frame",
+    "one long diagonal running corner to corner across the whole expanse"
+   ]
+  },
+  {
+   "letter": "D",
+   "kor": "극적조명",
+   "name": "dramatic light",
+   "life": "calm",
+   "direction": "Light it like a film. Mood over information. Shape and atmosphere carry the frame, not detail.",
+   "licence": "ATMOSPHERE may be added — haze, mist, dust in the air, wet surfaces, low sun flare. Structures stay as they are.",
+   "light": "hard backlight through haze, visible shafts, deep silhouette, blazing rim, near-black shadow",
+   "cam": {
+    "ext_air": "low aerial shooting straight into the setting sun, the site in silhouette against blazing sky, 40mm feel",
+    "ext_gnd": "low and close to the ground, shooting into the light so the building reads as a dark shape against glare, 40mm feel",
+    "ext_det": "backlit from behind the plane, its edge glowing against a dark sky, 85mm feel",
+    "int": "low, shooting toward the brightest opening so the space reads in silhouette and shafts, 40mm feel",
+    "obj": "low, camera on the ground shooting into the key, subject rimmed in hard light, 40mm feel",
+    "det": "raking backlight across the subject, deep shadow falling toward camera, 85mm feel"
+   },
+   "looks": [
+    [
+     "dusk, the last direct sun raking in almost horizontally through haze",
+     "deep contrast, near-black shadow, blazing warm rim, saturation only where the light lands"
+    ],
+    [
+     "just after rain, wet ground, low sun breaking under the cloud base",
+     "high contrast with reflections doubling every highlight, cool wet base against a warm key"
+    ],
+    [
+     "night, the place lit only by its own working lights and one hard source",
+     "near-monochrome cool base with hot amber practicals, extreme falloff"
+    ]
+   ],
+   "compo": [
+    "a bright aperture at the centre of a dark surround, the eye pulled straight through",
+    "the subject as a dark silhouette mass across the lower two-thirds, light above it",
+    "hard shafts cutting diagonally across an otherwise dark frame"
+   ]
+  },
+  {
+   "letter": "E",
+   "kor": "블록버스터",
+   "name": "blockbuster staging",
+   "life": "busy",
+   "direction": "Stage it like a hero shot from a feature film. Bold, theatrical, larger than life.",
+   "licence": "EXPAND: arrange multiples of the same subject in formation and add life and motion. Never a different kind of thing.",
+   "light": "strong low key with hard rim separation, dramatic falloff, practicals punching through, high contrast",
+   "cam": {
+    "ext_air": "steep dramatic aerial banking over the site, strong diagonal, dynamic converging perspective, 18mm feel",
+    "ext_gnd": "extreme low angle almost at ground level, the building towering into the top of frame, aggressive converging verticals, 18mm feel",
+    "ext_det": "extreme low looking steeply up the plane, dramatic perspective, 18mm feel",
+    "int": "camera on the floor looking up the aisle, structure towering overhead and converging, 18mm feel",
+    "obj": "camera at ground level a metre from the subject, it fills and towers over the frame, ranks of identical units receding behind, 18mm feel",
+    "det": "macro-close and low, the subject monumental in frame, 24mm feel"
+   },
+   "looks": [
+    [
+     "golden hour with dust and haze catching the light, a warm wind moving it",
+     "high-contrast warm key against cool shadow, rich saturated highlights, blacks crushed just short of empty"
+    ],
+    [
+     "storm light — a dark heavy sky with one break of hard sun landing on the subject",
+     "dramatic cool sky against a hot lit subject, very wide dynamic range"
+    ],
+    [
+     "blue hour with every practical burning and a faint mist in the air",
+     "cool blue field punctuated by intense warm sources, cinematic falloff"
+    ]
+   ],
+   "compo": [
+    "converging verticals rising out of the top of frame, the base anchored low and close",
+    "the hero filling two-thirds of frame with identical units receding behind it",
+    "an aggressive diagonal with heavy foreground weight and deep background"
+   ]
+  },
+  {
+   "letter": "F",
+   "kor": "부감그래픽",
+   "name": "top-down graphic",
+   "life": "busy",
+   "direction": "Treat the place as pure geometry seen from above. Roofs, lanes, racks and markings become a flat graphic composition. Order and rhythm carry the frame.",
+   "licence": "EXPAND: fill the pattern out with more of the same units so the rhythm reads right across the frame. Never a different kind of thing.",
+   "light": "flat overhead light, colour and pattern carrying the frame rather than shadow",
+   "cam": {
+    "ext_air": "directly overhead top-down, the site reading as a flat graphic pattern of roofs, roads and yards, 35mm feel",
+    "ext_gnd": "steep high oblique from above the roofline looking down, the building a graphic mass among its surroundings, 35mm feel",
+    "ext_det": "looking down at a steep angle onto the facade plane, strong graphic geometry, 50mm feel",
+    "int": "from the ceiling structure looking straight down the aisles, racks and floor markings reading as pure pattern, 24mm feel",
+    "obj": "directly overhead looking down on the vehicle, its roof and the yard markings as graphic shapes, 35mm feel",
+    "det": "straight down onto the subject, flat graphic top-down, 50mm feel"
+   },
+   "looks": [
+    [
+     "high midday sun, hard short shadows drawing out the geometry",
+     "saturated flat colour, graphic contrast, clean whites"
+    ],
+    [
+     "bright overcast, no shadow at all, pure colour and pattern",
+     "even desaturated base with strong accent colours reading as solid blocks"
+    ],
+    [
+     "low morning sun, long shadows becoming part of the pattern themselves",
+     "warm light and long blue shadows alternating in strict rhythm"
+    ]
+   ],
+   "compo": [
+    "an all-over flat pattern with no horizon, the frame read as a single plane",
+    "one strong axis — a road, an aisle, a belt — dividing the pattern in two",
+    "a grid of repeating units with one break in the rhythm as the focal point"
+   ]
+  },
+  {
+   "letter": "G",
+   "kor": "망원압축",
+   "name": "telephoto compression",
+   "life": "calm",
+   "direction": "Shoot it from far away on a long lens. Depth collapses, planes stack flat against each other, the subject is isolated and monumental within layered haze.",
+   "licence": "no additions beyond what already exists; the atmosphere between the layers may be deepened",
+   "light": "one distant source and layered atmosphere separating each compressed plane",
+   "cam": {
+    "ext_air": "long lens from a distant vantage, layers of the site stacked flat against each other, 200mm feel",
+    "ext_gnd": "long lens from far down the approach road, the building compressed against what lies behind it, 200mm feel",
+    "ext_det": "very long lens isolating the plane, background compressed to a flat field, 200mm feel",
+    "int": "long lens down the full length of the space, depth compressed so the racks stack into a dense wall, 135mm feel",
+    "obj": "long lens from far away, the vehicle isolated and flattened against a compressed background, 200mm feel",
+    "det": "long macro, subject isolated, background compressed to abstraction, 200mm feel"
+   },
+   "looks": [
+    [
+     "late afternoon, thick layered haze sitting between the planes",
+     "each plane a step paler and cooler than the one in front, restrained warm foreground"
+    ],
+    [
+     "early morning mist, everything soft and stacked",
+     "near-monochrome cool, one small warm accent holding the eye"
+    ],
+    [
+     "hazy sunset, the sun a soft disc behind the layers",
+     "warm gradient from amber above to deep blue below, minimal saturation elsewhere"
+    ]
+   ],
+   "compo": [
+    "flat stacked planes filling the frame edge to edge, no visible ground plane",
+    "the subject isolated small and centred within compressed layers",
+    "two planes only — a dark near mass and a pale far field"
+   ]
+  },
+  {
+   "letter": "H",
+   "kor": "현장시점",
+   "name": "in-the-action point of view",
+   "life": "busy",
+   "direction": "Put the viewer inside the work rather than in front of it. The camera is a person standing in the middle of it, close enough to touch something, with a real foreground element cutting into the frame.",
+   "licence": "PEOPLE AND MOTION may be added — workers, moving vehicles, parcels in transit — but only of the kinds already present.",
+   "light": "the practical sources inside the frame doing the work — fixtures, screens, machine lamps, headlights — mixed colour temperature left uncorrected",
+   "cam": {
+    "ext_air": "from a person standing on the roof deck or upper walkway of the building itself, looking out across the site, a railing or roof unit cutting into the near frame, 28mm feel",
+    "ext_gnd": "from a person walking in through the gate, a real foreground element — bollard, a parked truck's flank, the fence line — cutting into the near frame, 28mm feel",
+    "ext_det": "standing right beneath the surface looking along its length, the near edge cutting into frame, 28mm feel",
+    "int": "over the shoulder of a worker in the aisle, their back and shoulder holding the near third, the space opening out past them, 28mm feel",
+    "obj": "standing at the vehicle's front corner, close enough that the body curves away past the lens, another identical unit cutting the near frame, 28mm feel",
+    "det": "at hands distance, the near edge of the work surface cutting the bottom of frame, 35mm feel"
+   },
+   "looks": [
+    [
+     "mid-shift, interior working light only, no sense of the outside",
+     "warm practicals against cool ambient, honest mixed white balance left uncorrected"
+    ],
+    [
+     "early shift, cold outside light spilling in through the open doors",
+     "a cool daylight wedge cutting into a warm interior, natural colour"
+    ],
+    [
+     "night shift, the place lit entirely by its own fixtures",
+     "amber and sodium pools against deep neutral shadow, restrained saturation"
+    ]
+   ],
+   "compo": [
+    "a shoulder, hand or machine edge holding the near third, the space opening out past it",
+    "the frame very slightly off level, the subject caught off-centre as if glanced at",
+    "immediate foreground detail close and sharp, the depth running away behind it"
+   ]
+  },
+  {
+   "letter": "I",
+   "kor": "프레임인프레임",
+   "name": "framed through",
+   "life": "calm",
+   "direction": "Find a real aperture in the place and shoot through it. A dark foreground frame holds a bright subject at its centre. Build the image in layers, never flat.",
+   "licence": "the foreground framing element must be something already present in this kind of place; nothing new in kind",
+   "light": "a bright space beyond a dark unlit foreground, a hard luminance step between the frame and the subject",
+   "cam": {
+    "ext_air": "shot from inside an upper-floor opening, the dark frame of the aperture holding the site beyond, 35mm feel",
+    "ext_gnd": "shot through a real foreground aperture — between two parked trailers, through a gate frame, past a column — the building held inside the opening, 50mm feel",
+    "ext_det": "shot through a foreground gap so the surface sits framed and layered behind it, 85mm feel",
+    "int": "shot from a doorway or through a gap in the racking, the dark frame edges holding the bright working space beyond, 35mm feel",
+    "obj": "shot between two other identical units, their dark flanks framing the hero vehicle in the gap, 50mm feel",
+    "det": "shot past a dark foreground object into the subject beyond, clear layered depth, 85mm feel"
+   },
+   "looks": [
+    [
+     "bright day beyond, the foreground in deep shade",
+     "a dark neutral foreground silhouette against a clean bright field, hard luminance step"
+    ],
+    [
+     "dusk, a warm interior glowing beyond a cold dark foreground",
+     "cool near-black frame around a warm glowing centre"
+    ],
+    [
+     "overcast, soft even light beyond, the frame reading as pure dark shape",
+     "muted cool palette, separation carried by tone alone"
+    ]
+   ],
+   "compo": [
+    "a dark aperture occupying the outer third on every side, the subject bright in the opening",
+    "two frames nested — an outer dark edge, an inner bright opening, the subject inside that",
+    "the opening off-centre so the dark mass weights one side of the frame"
+   ]
+  },
+  {
+   "letter": "J",
+   "kor": "새벽정적",
+   "name": "dawn stillness",
+   "life": "none",
+   "direction": "The place before the working day starts. Nobody moving, everything waiting. Wide, quiet, perfectly level, with at most a single long-exposure trace of motion.",
+   "licence": "EMPTY IT OUT: fewer people, the place at rest, surfaces still wet from the night. Nothing new in kind.",
+   "light": "the sky itself as the only soft source, with the few lights still burning as small warm points",
+   "cam": {
+    "ext_air": "wide static tripod aerial held perfectly level and low, the site laid out calm and symmetrical beneath a large sky, 35mm feel",
+    "ext_gnd": "wide static tripod frame, camera low and dead level, the building sitting in the lower third under a large open sky, 28mm feel",
+    "ext_det": "static level frame, the surface reading quietly against a large dawn sky, 50mm feel",
+    "int": "wide static tripod frame from the end of the empty hall, level and still, long exposure, 28mm feel",
+    "obj": "wide static level frame, the vehicle parked and still in an empty yard, 35mm feel",
+    "det": "static level close frame, the object at rest and untouched, 50mm feel"
+   },
+   "looks": [
+    [
+     "pre-dawn, the sky just beginning to lift, ground wet from the night",
+     "deep blue base with a few warm points, very restrained saturation, smooth long-exposure water"
+    ],
+    [
+     "first light, a thin band of warm on the horizon, cold still air",
+     "cold blue throughout with one narrow warm horizon band"
+    ],
+    [
+     "blue hour after sunset, the last cool light, everything at rest",
+     "even cool tonality, gentle contrast, warm interior lights as small punctuation"
+    ]
+   ],
+   "compo": [
+    "a perfectly level horizon on the lower third, large calm sky above",
+    "central symmetry with a still reflection doubling the lower half",
+    "the subject small and centred in a wide empty field, nothing else in frame"
+   ]
+  }
+ ]
+}

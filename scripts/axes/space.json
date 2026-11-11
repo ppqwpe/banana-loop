@@ -1,0 +1,425 @@
+{
+ "name": "space",
+ "title": "공간·건축 — 매장·오피스·주거·호텔",
+ "kinds": [
+  "ext",
+  "int",
+  "vig",
+  "det"
+ ],
+ "default_kind": "int",
+ "kind_rules": {
+  "ext": [
+   "외관",
+   "외경",
+   "파사드",
+   "정면",
+   "진입",
+   "입구",
+   "야경",
+   "exterior",
+   "facade",
+   "entrance"
+  ],
+  "int": [
+   "내부",
+   "전경",
+   "실내",
+   "홀",
+   "로비",
+   "매장",
+   "interior",
+   "lobby",
+   "hall",
+   "wide"
+  ],
+  "vig": [
+   "코너",
+   "좌석",
+   "카운터",
+   "창가",
+   "라운지",
+   "데스크",
+   "corner",
+   "seating",
+   "counter",
+   "lounge"
+  ],
+  "det": [
+   "디테일",
+   "접사",
+   "클로즈",
+   "마감",
+   "소재",
+   "detail",
+   "close",
+   "macro",
+   "material",
+   "texture"
+  ]
+ },
+ "finish": [
+  "large-format technical camera on a tripod at base ISO, shift used for the verticals, true edge-to-edge sharpness",
+  "medium-format digital back, fine natural grain, gentle highlight roll-off on the windows, no digital sharpening",
+  "spherical prime lens, honest geometry with straight lines staying straight, deep focus throughout",
+  "modern cinema camera with wide latitude, texture held in both the darkest corner and the brightest window",
+  "long exposure on a tripod, absolute clarity, every surface texture legible",
+  "documentary stills camera, natural contrast curve, colour as the eye saw it, nothing pushed",
+  "high-resolution capture with the mixed interior sources balanced by hand rather than by auto white balance, no vignette, no corner softness"
+ ],
+ "no_text": "Render every shop sign, fascia, menu board, price tag, poster, notice, book spine, screen and packaging label as a CLEAN BLANK SURFACE. Absolutely no text, no letters, no Korean hangul, no numbers, no logos, no wordmarks anywhere in the image. Keep the shape, size, colour and position of the boards, frames, spines and labels, but leave them empty.",
+ "negative": "text, lettering, letters, words, typography, Korean hangul, numbers, signage text, logo, wordmark, brand name, captions, subtitles, watermark, garbled writing, fisheye distortion, bowed verticals, barrel distortion, tilt-shift miniature, architectural scale model, 3D render, game engine, CGI, sterile plastic surfaces, furniture catalogue collage, invented rooms, a different kind of building, HDR halo, blown white windows with no detail, on-camera flash, ceiling burnt to pure white, stretched furniture at the frame edge, floating furniture with no shadow, purple fringing, dull washed-out colour",
+ "ignore": [
+  "the reference's camera angle",
+  "the reference's framing and crop",
+  "the reference's time of day and weather",
+  "all text, lettering, signage and logos in the reference",
+  "leaning and converging verticals caused by the reference's lens",
+  "flat on-camera flash and mixed auto white balance",
+  "phone-camera look and heavy HDR processing",
+  "jpeg compression and noise",
+  "accidental clutter — bins, cables, stray boxes, parked stock",
+  "blown white windows and soft cornered edges"
+ ],
+ "materials": {
+  "treatment": "real surface evidence — the floor polished bright along the walking line and scuffed at the door, fingerprints and palm smears on glass, fabric slumped and creased where people sit, uneven paint and roller marks, chipped edges on skirtings and door frames, water staining around taps, dust settled on the high ledges",
+  "condition": "in daily use, lived in, not sterile"
+ },
+ "focus": "deep focus front to back with the whole depth of the room legible; only genuine long-lens falloff at close distance, no tilt-shift and no fake background blur",
+ "still": {
+  "B": "the space cleared and unpeopled, every chair pushed in, nothing in motion",
+  "D": "the grouping styled and then left alone, nobody in frame, nothing moving"
+ },
+ "moment": {
+  "ext": {
+   "calm": [
+    "one person pausing at the entrance with the door held half open",
+    "a single figure walking past the shopfront, nobody else on the street",
+    "a bicycle leaning against the railing, its owner gone inside",
+    "the awning half cranked out, one chair still stacked beneath it"
+   ],
+   "busy": [
+    "people going in and out through the entrance while two wait outside",
+    "every terrace table taken, a server crossing between them with a tray",
+    "a queue running back from the door along the elevation",
+    "the pavement full, groups passing in both directions in front of the glass"
+   ]
+  },
+  "int": {
+   "calm": [
+    "one person mid-stride across the far end of the room",
+    "a table half cleared, one chair pulled out and left at an angle",
+    "a door standing open onto the next room",
+    "a coat over the back of a single chair, nobody at the desk"
+   ],
+   "busy": [
+    "every seat taken, staff moving between the tables with trays",
+    "people at work at three different depths of the room at once",
+    "a group coming in through the entrance while others queue at the counter",
+    "the whole floor in use — chairs pulled out, people crossing, a door swinging shut"
+   ]
+  },
+  "vig": {
+   "calm": [
+    "a cup half drunk and a book laid open face down beside it",
+    "one chair pushed back from the table and turned outward",
+    "a hand just leaving the edge of frame",
+    "a drawer left slightly open, a jacket over the chair arm"
+   ],
+   "busy": [
+    "two people leaning into the same table, one of them gesturing",
+    "hands reaching across the group for something in the middle",
+    "someone sitting down while another stands to leave",
+    "the grouping in full use, a bag on the floor and a coat over the back"
+   ]
+  },
+  "det": {
+   "calm": [
+    "the surface untouched, one object sitting slightly out of line",
+    "a tap still dripping onto a wet basin",
+    "a switch left half thrown",
+    "a page turned back on itself and left that way"
+   ],
+   "busy": [
+    "a hand mid-action on the handle, the door already beginning to move",
+    "fingers pressing the panel, the mechanism just starting to travel",
+    "someone setting a cup down onto the surface in frame",
+    "hands working at the counter with more reaching in behind them"
+   ]
+  }
+ },
+ "modes": [
+  {
+   "letter": "A",
+   "kor": "정투2점",
+   "name": "two-point elevation",
+   "life": "calm",
+   "direction": "The standard architectural record frame — two wall planes meeting, the room described accurately enough to be measured from. Correct, calm, and built on discipline rather than effect.",
+   "licence": "correct only what a photographer would correct on site — straighten a cushion, align a chair, pull out a stray cable. Never introduce a different kind of space or building; the room stays exactly the kind of place the reference shows.",
+   "light": "the room's own daylight through its real openings, lifted by the fixtures already installed, contrast held so the window and the darkest corner both keep detail",
+   "cam": {
+    "ext": "camera 1.5m, square to the entrance bay with the side elevation running away on one side, verticals kept rigidly parallel by shift rather than by tilting the camera, 35mm feel",
+    "int": "camera 1.35m, backed into one corner so two walls meet just off the centre third, verticals rigidly parallel with no keystone at all, ceiling line and floor line both dead straight, 24mm feel",
+    "vig": "camera 1.2m, square to the grouping with the return wall opening away on one side, verticals parallel, 50mm feel",
+    "det": "camera 1.3m, square-on to the surface, the joint centred and level, 90mm feel"
+   },
+   "looks": [
+    [
+     "late morning, bright overcast, even light through every opening",
+     "neutral white balance held across the mixed sources, whites truly white, restrained saturation"
+    ],
+    [
+     "early afternoon, thin high cloud, one soft patch of sun landing on the floor",
+     "warm floor light against cool window daylight, gentle contrast, shadows kept open"
+    ],
+    [
+     "mid-afternoon in winter, low even daylight, dry still air",
+     "cool neutral base with the lamps left honestly warm, blacks neutral and deep"
+    ]
+   ],
+   "compo": [
+    "two wall planes meeting just off the centre third, each running to its own vanishing point",
+    "ceiling line and floor line both held straight and level, the room read as it was built",
+    "even margin above the ceiling line and below the floor edge, nothing cropped at an awkward joint"
+   ]
+  },
+  {
+   "letter": "B",
+   "kor": "일점축",
+   "name": "one-point axis",
+   "life": "none",
+   "direction": "Look straight down the length of the space along its own axis, one vanishing point dead centre. The room is presented rather than observed — formal, symmetrical, immaculate.",
+   "licence": "clear the frame: remove clutter, align every repeating element on the axis, empty the space of people. Nothing may be added that turns this into a different kind of space or building.",
+   "light": "clean even light the whole way down the axis, the far end a little brighter than the near end, no muddy pockets, every surface legible",
+   "cam": {
+    "ext": "camera 1.5m, dead centre on the building axis and square to the facade, even margins left and right, verticals rigidly parallel by shift, 35mm feel",
+    "int": "camera 1.4m, exactly on the centreline looking down the full length of the space, vanishing point dead centre, verticals rigidly parallel with no keystone, 24mm feel",
+    "vig": "camera 1.25m, centred and square to the grouping, symmetrical about its own middle, 50mm feel",
+    "det": "camera 1.3m, square-on and centred on the surface, perfectly level, 100mm feel"
+   },
+   "looks": [
+    [
+     "mid-morning, bright overcast, the far glazing filling the end of the axis",
+     "clean neutral white balance, precise contrast, window highlights controlled, no colour cast"
+    ],
+    [
+     "midday, clear and bright outside with the blinds evening the light inside",
+     "cool-neutral base with timber reading true, whites truly white, restrained saturation"
+    ],
+    [
+     "late afternoon, soft even daylight with the fixtures carrying the far end",
+     "warm neutral with a gentle golden lift down the axis, immaculate blacks"
+    ]
+   ],
+   "compo": [
+    "central symmetry, the vanishing point dead centre, equal margins left and right",
+    "the repeating elements paired evenly on both sides of the axis",
+    "the floor pattern running straight out of the bottom of frame into the centre"
+   ]
+  },
+  {
+   "letter": "C",
+   "kor": "코너광각",
+   "name": "corner wide coverage",
+   "life": "busy",
+   "direction": "Back into the corner and take the whole place in one frame. The job is coverage — every zone, every level, and how the parts of the plan connect to each other.",
+   "licence": "EXPAND: fill the space out with more of the same — more tables, more desks, more of the same seating and fittings — and add the people who would use them. Never a different kind of space and never a different kind of building.",
+   "light": "the full daylight load of the room with every fixture also on, wide latitude so the far window and the near corner both hold their detail",
+   "cam": {
+    "ext": "camera 1.6m, backed across the street to the opposite corner so both street elevations read at once, verticals held parallel, 20mm feel",
+    "int": "camera 1.6m, pressed into the far corner so the two adjacent walls fan out to the frame edges and the whole plan is visible in one frame, verticals held parallel, 14mm feel",
+    "vig": "camera 1.4m, close into the corner of the grouping with the nearest seat filling one edge, 24mm feel",
+    "det": "camera 1.3m, close to the surface with the whole room falling away behind it, 35mm feel"
+   },
+   "looks": [
+    [
+     "midday, bright clear sky outside, every light in the room switched on",
+     "wide dynamic range, neutral base, cool window daylight against warm interior fixtures"
+    ],
+    [
+     "late afternoon, the sun off the facade, soft bounce filling the room",
+     "warm even tonality, open shadows, restrained saturation"
+    ],
+    [
+     "overcast weekday, flat exterior light, the fixtures doing most of the work",
+     "cool daylight from the glazing against warm lamp pools, honest mixed balance"
+    ]
+   ],
+   "compo": [
+    "two walls fanning out from a near corner, the plan opening right across the frame",
+    "foreground furniture cutting both lower corners, the depth of the room running away between them",
+    "activity distributed across three depths — near, middle and far — so the room reads as occupied"
+   ]
+  },
+  {
+   "letter": "D",
+   "kor": "비네트",
+   "name": "arranged vignette",
+   "life": "none",
+   "direction": "Photograph one part of the place as a still life — a single grouping, a long lens, everything placed and nothing accidental. Quiet, close, and deliberately incomplete about the room around it.",
+   "licence": "style the grouping: move an object a few centimetres, fold a throw, set a cup down, take a chair away. Nothing may be brought in that would not already live here, and nothing may turn this into a different kind of space.",
+   "light": "one soft directional source just out of frame — a window or a single lamp — a long gentle falloff across the grouping, the rest of the room dropping quietly away",
+   "cam": {
+    "ext": "camera 1.4m, tight on one bay of the elevation with the rest of the building cropped away, 85mm feel",
+    "int": "camera 1.35m, standing well back and pulling one grouping out of the room on a long lens, the surroundings compressed behind it, 85mm feel",
+    "vig": "camera 1.1m, just above the tabletop, the grouping filling the frame with the room falling gently away behind it, 105mm feel",
+    "det": "camera 0.9m, in close at the height of the object itself, 135mm feel"
+   },
+   "looks": [
+    [
+     "late morning, soft daylight through a sheer, still air",
+     "warm neutral, low contrast, creamy highlights, muted saturation"
+    ],
+    [
+     "mid-afternoon, thin cloud softening a side window",
+     "cool soft base with one warm material accent, gentle roll-off"
+    ],
+    [
+     "early evening, the window light gone blue, a single lamp carrying the group",
+     "warm lamp pool against a cool blue ambient, quiet contrast"
+    ]
+   ],
+   "compo": [
+    "the grouping held in the middle with generous quiet space around it",
+    "objects arranged in an uneven triangle, one taller element breaking the top line",
+    "the near edge of the surface running across the bottom of frame as a base line"
+   ]
+  },
+  {
+   "letter": "E",
+   "kor": "개구부너머",
+   "name": "through the opening",
+   "life": "calm",
+   "direction": "Shoot the space from outside it, through a real opening — a doorway, an arch, a glazed partition, a deep window reveal. The near frame is dark and the space beyond is bright, so the image reads in layers rather than flat.",
+   "licence": "the framing element must be something already built into this place — a door, a reveal, a screen, a column. Nothing may be added that turns this into a different kind of space or building.",
+   "light": "a bright space beyond an unlit foreground, a clear hard luminance step across the threshold",
+   "cam": {
+    "ext": "camera 1.45m, standing back under a canopy or inside a covered entrance, the dark reveal holding the elevation beyond, 35mm feel",
+    "int": "camera 1.4m, standing in the adjoining room and shooting through the open doorway, the door lining held as a hard dark border on all four sides, verticals parallel, 35mm feel",
+    "vig": "camera 1.3m, shooting past a partition edge or door jamb into the grouping beyond, 50mm feel",
+    "det": "camera 1.2m, close past a dark foreground edge onto the surface behind it, 85mm feel"
+   },
+   "looks": [
+    [
+     "bright day outside, the near room unlit and sitting in shade",
+     "dark neutral foreground against a clean bright field, hard luminance step"
+    ],
+    [
+     "dusk, the far room warm with lamplight while the near room has already gone cold",
+     "cool near-black border around a warm glowing centre"
+    ],
+    [
+     "overcast, soft even light beyond, the frame reading as pure dark shape",
+     "muted cool palette, the separation carried by tone alone"
+    ]
+   ],
+   "compo": [
+    "a dark border on all four sides, the lit space held bright in the opening",
+    "two openings nested, the far one carrying the subject",
+    "the opening set off-centre so the dark mass weights one side of the frame"
+   ]
+  },
+  {
+   "letter": "F",
+   "kor": "보행시점",
+   "name": "walkthrough at eye height",
+   "life": "busy",
+   "direction": "Move through the place the way a visitor does rather than the way a photographer sets up. Handheld at eye height, tipped where a person would tip it, with the verticals deliberately allowed to converge.",
+   "licence": "PEOPLE AND MOVEMENT may be added — customers, staff, a queue, a door swinging — but only the kinds of people this place already holds. Never a different kind of space or building.",
+   "light": "the practical fixtures inside the frame doing the work — pendants, spots, screens, a glowing shopfront — mixed colour temperature left uncorrected",
+   "cam": {
+    "ext": "camera 1.65m handheld on the pavement approaching the entrance, tilted up so the facade keystones on purpose, a passer-by cutting the near frame, 28mm feel",
+    "int": "camera 1.65m handheld at a walking person's eye height, tipped slightly off level and slightly up so the verticals converge on purpose, no shift correction at all, 28mm feel",
+    "vig": "camera 1.55m, handheld and looking down over someone's shoulder into the grouping, 35mm feel",
+    "det": "camera 1.4m at arm's length, leaning in the way a person actually would, 35mm feel"
+   },
+   "looks": [
+    [
+     "busy weekday lunchtime, daylight outside, every fixture on inside",
+     "warm practicals against cool daylight, honest mixed white balance left uncorrected"
+    ],
+    [
+     "early evening, dark outside, the interior running entirely on its own light",
+     "amber pools against deep neutral shadow, restrained saturation"
+    ],
+    [
+     "Saturday afternoon, bright outside, hard sun coming in through the shopfront",
+     "a cool daylight wedge cutting into a warm interior, natural colour"
+    ]
+   ],
+   "compo": [
+    "a shoulder, a chair back or a doorframe holding the near third, the space opening out past it",
+    "the frame slightly off level with the verticals converging, caught rather than composed",
+    "people at three depths, the nearest one cut by the frame edge"
+   ]
+  },
+  {
+   "letter": "G",
+   "kor": "트와일라잇",
+   "name": "twilight balance",
+   "life": "calm",
+   "direction": "The twilight frame, shot in the ten minutes when the interior lights and the sky sit at the same brightness. The building glows from inside and still stands in a sky that has colour left in it.",
+   "licence": "lights may be switched on or off to balance the elevation, and the ground may be left wet. Nothing may be added that turns this into a different kind of space or building.",
+   "light": "interior fixtures burning at the same value as the last of the sky, the two balanced so neither the windows blow out nor the sky goes black",
+   "cam": {
+    "ext": "camera 1.4m on a tripod across the road, three-quarter to the entrance corner, verticals kept rigidly parallel by shift, 28mm feel",
+    "int": "camera 1.4m on a tripod set back from the glazing looking out, the room lit and the sky beyond still holding colour, verticals parallel, 24mm feel",
+    "vig": "camera 1.3m, the grouping set against a window with the twilight sky behind it, 50mm feel",
+    "det": "camera 1.3m, square to a lit surface with the darkening sky as its background, 85mm feel"
+   },
+   "looks": [
+    [
+     "fifteen minutes after sunset, clear sky, the air cooling",
+     "deep blue sky against warm interior amber, controlled contrast, both ends holding detail"
+    ],
+    [
+     "blue hour after light rain, the pavement still wet and reflecting",
+     "cool blue base doubled in the wet ground, the warm windows the only heat in frame"
+    ],
+    [
+     "winter dusk, thin cloud picking up the last colour, cold still air",
+     "muted violet sky against warm lamps, restrained saturation, no crushed blacks"
+    ]
+   ],
+   "compo": [
+    "the elevation across the lower two-thirds under a sky that still has tone in it",
+    "the lit openings reading as a rhythm of warm rectangles across a cool mass",
+    "a wet foreground plane carrying the reflection into the bottom of frame"
+   ]
+  },
+  {
+   "letter": "H",
+   "kor": "평면부감",
+   "name": "plan-like overhead",
+   "life": "busy",
+   "direction": "Look straight down and read the place as a plan. Floor, furniture layout, circulation and pattern flatten into a graphic composition where rhythm carries the frame.",
+   "licence": "EXPAND: fill the layout out with more of the same units so the pattern reads right across the frame, and populate it with the people who would use them. Never a different kind of space or building.",
+   "light": "flat overhead light, the plan carried by colour, pattern and the shape the shadows draw rather than by modelling",
+   "cam": {
+    "ext": "camera 25m directly above the entrance forecourt looking vertically down, roof and paving reading as flat shapes, 35mm feel",
+    "int": "camera 2.9m at the ceiling looking vertically down, the floor filling the frame edge to edge with no wall and no horizon, 16mm feel",
+    "vig": "camera 1.8m directly above the table or desk looking straight down, the grouping flat in frame, 35mm feel",
+    "det": "camera 0.6m straight down onto the surface, flat and square to it, 50mm feel"
+   },
+   "looks": [
+    [
+     "midday, bright even daylight through the rooflights, short hard shadows",
+     "saturated flat colour, graphic contrast, clean whites"
+    ],
+    [
+     "bright overcast, almost no shadow at all, pure colour and pattern",
+     "even desaturated base with strong accent colours reading as solid blocks"
+    ],
+    [
+     "late afternoon, low sun through the glazing laying long shadows across the floor",
+     "warm light and long cool shadows alternating in a strict rhythm"
+    ]
+   ],
+   "compo": [
+    "an all-over flat pattern with no horizon, the frame read as a single plane",
+    "one strong axis — a circulation route, a counter run, a table line — dividing the plan in two",
+    "a grid of repeating units with one break in the rhythm as the focal point"
+   ]
+  }
+ ]
+}
