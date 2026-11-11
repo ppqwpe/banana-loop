@@ -17,5 +17,6 @@ higgsfield-diagnostics*.json
 *.jpeg
 *.webp
 
-# 로고는 올린다
+# 로고와 안내 이미지는 올린다
 !logo/**/*.png
+!docs/**/*.jpg

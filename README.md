@@ -44,6 +44,29 @@ Needs Python 3.9+, a Higgsfield account and Unlimited access for the model you u
 
 The Korean quick start is [처음_시작하기.txt](처음_시작하기.txt).
 
+### Illustrated guide (Korean)
+
+Step-by-step pages with the request to copy for each mode and the real Claude conversation it came from.
+They were made with alpha.5, when the skill folder was still called `higgsfield-loop`; the requests work the same with `banana-loop`.
+
+<details>
+<summary>1. Sort the reference folder first</summary>
+
+![Sorting the reference folder](docs/guide/01_setup.jpg)
+</details>
+
+<details>
+<summary>2. Text only, and one reference</summary>
+
+![Text-only loop and one-reference loop](docs/guide/02_text_and_one_ref.jpg)
+</details>
+
+<details>
+<summary>3. Reference folder, swapped in order</summary>
+
+![Reference folder loop](docs/guide/03_ref_folder.jpg)
+</details>
+
 ## Layout
 
 ```
@@ -58,6 +81,7 @@ references/               detailed rules, troubleshooting, release checks
 examples/                 sample prompt data
 logo/                     icons and wordmarks (made by tools/make_logo.py)
 docs/demo.gif             the demo above
+docs/guide/               the illustrated Korean guide
 tools/make_logo.py        repo upkeep only; the skill never uses it
 ```
 
