@@ -1,37 +1,37 @@
-# 파일명과 슬롯 번호
+# File names and slot numbers
 
-- 파일: `01_이름.jpg`, `100_제품.webp`처럼 1~999의 번호와 이름. 확장자 jpg/jpeg/png/webp.
-- 같은 번호 두 장은 오류. 스캐너와 폴더 로더 모두 덮어쓰지 않고 거부한다.
-- `01`, `03`처럼 공백 번호는 허용. 없는 번호는 생성 목록에 포함하지 않는다.
-- 폴더 연결은 선택한 폴더 바로 아래 파일만 읽는다. 하위 폴더는 읽지 않는다.
-- `_prompts.json`과 사진을 같은 폴더에 둔다.
+- Files: a number from 1 to 999 and a name, like `01_name.jpg`, `100_product.webp`. Extensions jpg/jpeg/png/webp.
+- Two files with the same number is an error. Both the scanner and the folder loader reject it instead of overwriting.
+- Gaps in numbers such as `01`, `03` are allowed. Missing numbers are not included in the generation list.
+- Folder connection reads only files directly under the selected folder. Subfolders are not read.
+- Put `_prompts.json` and the photos in the same folder.
 
-## 이름 정리
+## Renaming
 
-원본 보존 요청이 있으면 먼저 `정리된_레퍼`에 복사한 뒤, 아래 명령은 복사본 폴더에만 적용한다. `--apply`는 해당 폴더의 파일명을 실제 변경한다.
-
-```sh
-python scripts/scan_refs.py "폴더" --rename
-python scripts/scan_refs.py "폴더" --rename --apply
-```
-
-`--rename`은 규칙 미준수 파일에 현재 최대 번호 다음 번호를 붙인다. 공백을 메우지 않는다. 전체를 1..N으로 다시 매기려면 `--renumber`를 사용한다. 기존 번호순, 그다음 미준수 파일의 이름순으로 정렬한다.
+If the user asked to preserve the originals, first copy them into `sorted_refs`, and apply the commands below to the copy folder only. `--apply` actually renames the files in that folder.
 
 ```sh
-python scripts/scan_refs.py "폴더" --renumber
-python scripts/scan_refs.py "폴더" --renumber --apply
+python scripts/scan_refs.py "folder" --rename
+python scripts/scan_refs.py "folder" --rename --apply
 ```
 
-변경안만 볼 때는 아무 파일도 쓰지 않는다. 적용할 때 대상 이름 충돌을 검사하고 임시 이름을 거쳐 바꾼다. 이름 변경이 끝나면 폴더를 다시 읽어 cuts.json을 작성하고 기존 entity·유효한 kind를 보존한다. 작업 도중 다른 프로그램이 파일을 바꾸지 않게 한다. 번호를 바꾼 뒤에는 `_prompts.json`도 다시 빌드한다.
+`--rename` gives files that do not follow the rule the number after the current maximum. It does not fill gaps. To renumber everything as 1..N, use `--renumber`. It sorts by existing number first, then by name for non-compliant files.
 
-## 슬롯
+```sh
+python scripts/scan_refs.py "folder" --renumber
+python scripts/scan_refs.py "folder" --renumber --apply
+```
+
+When only viewing the proposed changes, nothing is written. When applying, it checks for target-name collisions and renames through temporary names. After renaming is done, re-read the folder and write cuts.json, preserving existing entities and valid kinds. Do not let other programs change the files during the work. After renumbering, rebuild `_prompts.json` as well.
+
+## Slots
 
 `slot = reference_id + variant_index * stride`
 
-`stride = 최대 레퍼 번호를 10 단위로 올림`, 최소 10.
+`stride = highest reference number rounded up to a multiple of 10`, minimum 10.
 
 `reference_id = ((slot - 1) % stride) + 1`
 
-레퍼가 1번과 3번뿐이면 stride=10, 슬롯은 1/11/...과 3/13/...이다. 2번 그룹은 생성되지 않는다. 공백 때문에 다른 레퍼로 밀리는 구조가 아니다.
+If the references are only numbers 1 and 3, stride=10 and the slots are 1/11/... and 3/13/.... Group 2 is not generated. A gap does not shift things onto a different reference.
 
-결과 다운로드·파일명 연결은 자동화하지 않는다. 실행 기록의 slot/rep를 사이트 이력과 대조한다.
+Downloading results and linking file names are not automated. Compare the run log's slot/rep against the site history.

@@ -1,6 +1,6 @@
 {
  "name": "industrial",
- "title": "산업·시설 — 물류센터·공장·창고·사옥",
+ "title": "Industrial & facilities — logistics centres, factories, warehouses, HQ buildings",
  "kinds": [
   "ext_air",
   "ext_gnd",
@@ -194,7 +194,6 @@
  "modes": [
   {
    "letter": "A",
-   "kor": "시네마틱",
    "name": "restrained cinematic",
    "life": "calm",
    "direction": "Photograph the place as a skilled cinematographer would on a real location — honest, grounded, human. Confident but never theatrical.",
@@ -230,7 +229,6 @@
   },
   {
    "letter": "B",
-   "kor": "브랜드필름",
    "name": "brand film hero",
    "life": "none",
    "direction": "The frame the client puts on their homepage. Formal, immaculate, everything reading proudly and clearly.",
@@ -266,7 +264,6 @@
   },
   {
    "letter": "C",
-   "kor": "웅장스케일",
    "name": "epic scale",
    "life": "busy",
    "direction": "Make the viewer feel the sheer size of the operation. Endless repetition running to a distant vanishing point, the subject small against the scale around it.",
@@ -302,7 +299,6 @@
   },
   {
    "letter": "D",
-   "kor": "극적조명",
    "name": "dramatic light",
    "life": "calm",
    "direction": "Light it like a film. Mood over information. Shape and atmosphere carry the frame, not detail.",
@@ -338,7 +334,6 @@
   },
   {
    "letter": "E",
-   "kor": "블록버스터",
    "name": "blockbuster staging",
    "life": "busy",
    "direction": "Stage it like a hero shot from a feature film. Bold, theatrical, larger than life.",
@@ -374,7 +369,6 @@
   },
   {
    "letter": "F",
-   "kor": "부감그래픽",
    "name": "top-down graphic",
    "life": "busy",
    "direction": "Treat the place as pure geometry seen from above. Roofs, lanes, racks and markings become a flat graphic composition. Order and rhythm carry the frame.",
@@ -410,7 +404,6 @@
   },
   {
    "letter": "G",
-   "kor": "망원압축",
    "name": "telephoto compression",
    "life": "calm",
    "direction": "Shoot it from far away on a long lens. Depth collapses, planes stack flat against each other, the subject is isolated and monumental within layered haze.",
@@ -446,7 +439,6 @@
   },
   {
    "letter": "H",
-   "kor": "현장시점",
    "name": "in-the-action point of view",
    "life": "busy",
    "direction": "Put the viewer inside the work rather than in front of it. The camera is a person standing in the middle of it, close enough to touch something, with a real foreground element cutting into the frame.",
@@ -482,7 +474,6 @@
   },
   {
    "letter": "I",
-   "kor": "프레임인프레임",
    "name": "framed through",
    "life": "calm",
    "direction": "Find a real aperture in the place and shoot through it. A dark foreground frame holds a bright subject at its centre. Build the image in layers, never flat.",
@@ -518,7 +509,6 @@
   },
   {
    "letter": "J",
-   "kor": "새벽정적",
    "name": "dawn stillness",
    "life": "none",
    "direction": "The place before the working day starts. Nobody moving, everything waiting. Wide, quiet, perfectly level, with at most a single long-exposure trace of motion.",

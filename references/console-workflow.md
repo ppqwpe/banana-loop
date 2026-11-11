@@ -1,53 +1,52 @@
-# 프로젝트별 콘솔 스크립트
+# Per-project console script
 
-배포 단계: 알파 `0.3.2-alpha.6`. 생성한 패널에도 알파 버전을 표시한다. 기능별 실제 검증 범위는 이 스킬의 SKILL.md를 따른다. 미검증 기능을 검증 완료로 안내하지 않는다.
+Release stage: alpha `0.3.2-alpha.6`. The generated panel also shows the alpha version. The actual verification scope per feature follows this skill's SKILL.md. Do not present unverified features as verified.
 
-## 사용 흐름
+## Flow
 
-에이전트가 편집용 `_prompts.json`을 만들고 다음 명령으로 엔진·패널·프롬프트가 모두 담긴 실행 파일을 만든다. JSON이나 엔진 원본만 사용자에게 전달하지 않는다.
+The agent makes the editable `_prompts.json` and builds a run file containing the engine, panel and prompts with the command below. Do not hand the user only the JSON or the engine source.
 
 ```sh
-python scripts/build_console.py "프로젝트/_prompts.json" --reference manual --out "프로젝트/콘솔에_붙여넣기.js"
+python scripts/build_console.py "project/_prompts.json" --reference manual --out "project/paste_into_console.js"
 ```
 
-- `manual`: 사용자가 원본 1장을 사이트에 올린다. 스크립트는 이를 유지하며 프롬프트만 변경한다. 모든 슬롯은 같은 레퍼 그룹이어야 한다(예: stride 10, 슬롯 1·11·21).
-- `folder`: 번호별 이미지를 자동 교체한다. 패널의 이미지 폴더 연결에서 `01_이름.png` 등이 바로 들어 있는 폴더를 고른다. JSON은 코드에 내장되어 있으므로 선택 폴더에 없어도 된다.
-- `none`: 사진 없는 텍스트 작업. 사이트의 기존 레퍼를 사용자가 비운다.
+- `manual`: the user uploads 1 original to the site. The script keeps it and changes only the prompts. All slots must belong to the same reference group (e.g. stride 10, slots 1, 11, 21).
+- `folder`: swaps the numbered images automatically. In the panel's Connect image folder, pick the folder that directly contains `01_name.png` and so on. The JSON is embedded in the code, so it need not be in the selected folder.
+- `none`: text-only job with no photos. The user clears the site's existing reference.
 
-화면비·모델·출력 수는 사이트 설정을 그대로 사용한다. 특정 화면비로 바꾸라고 요구하지 않는다. 기본 `aspect` 메타데이터는 `site`이며 코드의 실행 조건이 아니다. 사용자가 요청한 경우에만 프롬프트에 특정 화면비를 명시한다. 스크립트가 이를 자동 설정한다고 말하지 않는다. 한 번 테스트는 요청 1회이며 결과 장수는 사이트 설정에 따른다.
+Aspect ratio, model and number of outputs use the site settings as they are. Do not require changing to a specific aspect ratio. The default `aspect` metadata is `site` and is not an execution condition in the code. State a specific aspect ratio in the prompt only if the user asked. Do not say the script sets it automatically. Test once is 1 request, and the number of result images follows the site settings.
 
-기본 무한 OFF·셔플 OFF. 명시적으로 끝없는 반복/랜덤을 요청한 경우만 `--infinite`, `--shuffle` 옵션을 사용한다. 폴더 순서대로 처리하는 작업은 셔플 OFF다.
+Default is Loop OFF and Shuffle OFF. Use the `--infinite` and `--shuffle` options only when endless repeat/random is explicitly requested. Jobs processed in folder order use Shuffle OFF.
 
-## 패널과 실행 상태
+## Panel and run state
 
-콘솔 코드를 전체 붙여넣으면 프로젝트 패널이 뜨고 실행 점검이 자동으로 표시된다. 별도 작동 ON/OFF는 없다. 일괄 시작 또는 한 번 테스트가 바로 실행을 시작한다. 입력창·생성 버튼·Unlimited·레퍼 중 문제가 있으면 생성 전에 이유를 표시한다.
+Pasting the whole console code shows the project panel and the setup check is displayed automatically. There is no separate activation ON/OFF. Start or Test once starts the run immediately. If something is wrong with the input box, generate button, Unlimited or reference, the reason is shown before generating.
 
-- 시작/이어서 실행: 준비된 프롬프트를 처리한다. 같은 세션에서 접수 확인된 요청을 다시 보내지 않는다.
-- 한 번 테스트: 다음 프롬프트 1회를 요청한다.
-- 중단/닫기: 다음 요청을 막는다. 이미 접수된 생성은 취소하지 않는다. 다시 시작하면 미처리 항목부터 이어간다.
-- 접기: 패널만 접으며 실행은 유지한다. 제목을 드래그해서 패널을 옮길 수 있다.
-- 무한 OFF: 현재 회전까지만 처리한다. ON이면 중단할 때까지 회전한다.
-- 셔플: 진행 중 항목은 유지하고 미전송 항목만 섞는다. OFF면 미전송 항목이 원래 순서로 돌아간다.
-- 실행 점검: 생성이나 설정 변경 없이 현재 화면의 준비 상태를 읽는다.
-- 진행 기록·진단: 오류 원인과 진단 복사를 제공한다. 접수 표시를 못 찾으면 미확인으로 기록하고 다음 항목으로 진행한다. 별도 확인 버튼이나 잠금은 없다.
+- Start/Resume: processes the prepared prompts. It does not resend requests confirmed accepted in the same session.
+- Test once: requests the next prompt once.
+- Stop/Close and stop: blocks the next request. It does not cancel generations already accepted. Starting again continues from the unprocessed items.
+- Fold: folds only the panel and keeps the run going. You can move the panel by dragging its title.
+- Loop OFF: processes only up to the current round. When ON, it keeps cycling until stopped.
+- Shuffle: keeps the in-progress item and shuffles only the unsent items. When OFF, the unsent items return to their original order.
+- Check setup: reads the readiness of the current screen without generating or changing settings.
+- Log · diagnostics: provides error causes and Copy diagnostics. If the acceptance marker is not found, it is recorded as unconfirmed and the run moves on to the next item. There is no separate confirm button or lock.
 
-동일 코드 재붙여넣기는 기존 컨트롤러를 다시 보여준다. 새 버전 엔진으로 교체할 때 같은 페이지·동일 프로젝트 데이터·중단 상태이면 진행 위치와 파일 연결을 인계한다. 데이터 변경이나 새로고침 시에는 이 인계가 적용되지 않으므로 이미 처리한 조합을 새 실행 목록에서 제외한다.
+Re-pasting the same code shows the existing controller again. When replacing it with a newer engine, if it is the same page, the same project data and a stopped state, the progress position and file connection are handed over. On data changes or reload this handover does not apply, so exclude combinations already processed from the new run list.
 
-## 전달 전 검증
+## Pre-delivery verification
 
-`node --check "프로젝트/콘솔에_붙여넣기.js"`와 `node scripts/verify.js assets/engine.js "프로젝트/_prompts.json"`을 실행한다. 빌더 입력 검증 실패 시 기존 산출물은 유지된다. 한 파일 전체를 링크/첨부로 전달하고 사용자가 코드블록을 원하면 생략 없는 javascript 블록으로 제공한다.
+Run `node --check "project/paste_into_console.js"` and `node scripts/verify.js assets/engine.js "project/_prompts.json"`. If the builder's input validation fails, the existing output is kept. Deliver one whole file as a link/attachment, and if the user wants a code block, provide a javascript block with nothing omitted.
 
-짧은 사용 안내: 원본 업로드(manual만) → F12 / Console → 실행 코드 전체 붙여넣기 → Enter → 실행 점검 → 한 번 테스트. 붙여넣기 차단 경고가 나오면 코드 확인 후 `allow pasting`을 직접 입력하고 Enter. folder 모드만 이미지 폴더를 연결한다. Unlimited는 실행 시 켜고 확인 실패 시 생성하지 않는다. 탭을 유지하고 절전을 꺼둔다.
+Short usage guide: upload the original (manual only) -> F12 / Console -> paste the whole run code -> Enter -> Check setup -> Test once. If a paste-blocking warning appears, check the code, type `allow pasting` yourself and press Enter. Only folder mode connects an image folder. Unlimited is turned on at run time and, if the check fails, nothing is generated. Keep the tab open and turn off sleep.
 
-## 구조와 디버깅
+## Structure and debugging
 
-현재 검증 환경·검사 실행법·클래스 책임은 [배포 검증](release-checks.md)을 참고한다. 연결 폴더 파일을 첨부할 때는 메뉴 열림·닫힘과 입력 재생성을 기다리고, 새 업로드 카드만 자동 선택한다.
+For the current verification environment, how to run the checks and the class responsibilities, see [release verification](release-checks.md). When attaching a file from the connected folder, wait for the menu to open and close and for the input to be recreated, and auto-select only the new upload card.
 
-`assets/engine.js`는 DOM 탐색(DomResolver), 입력(PromptEditor), 레퍼(ReferenceManager), Unlimited(UnlimitedControl), 접수 확인(SubmissionMonitor), 사이트 연결(BrowserAdapter), 실행 상태(BatchController)를 각각 클래스로 분리한다. `assets/console-panel.js`의 BatchPanel은 표시와 사용자 동작만 맡는다. 사이트 DOM이 바뀌면 해당 클래스만 고치고 순서·중단·중복 방지의 회귀 테스트를 실행한다.
+`assets/engine.js` separates DOM lookup (DomResolver), input (PromptEditor), references (ReferenceManager), Unlimited (UnlimitedControl), acceptance check (SubmissionMonitor), site connection (BrowserAdapter) and run state (BatchController) into classes. BatchPanel in `assets/console-panel.js` handles only display and user actions. When the site DOM changes, fix only the relevant class and run the regression tests for order, stop and duplicate prevention.
 
-현재 직접 확인한 사이트 식별자는 `form#image-form`, `hf:tour-image-prompt`, `hf:image-form-submit`이다. 제목만 추가하거나 임의 좌표/색상으로 버튼을 선택하지 않는다. 한글 생성하기2처럼 자식 요소 텍스트가 붙어도 form 내부의 ID로 구분한다. Unlimited 라벨은 스위치의 부모가 아닌 상위 래퍼에 있을 수 있다. Lexical 입력창은 네이티브 편집 이벤트로 입력하고 줄바꿈을 포함한 전체 텍스트를 검증한다.
+The site identifiers directly confirmed so far are `form#image-form`, `hf:tour-image-prompt` and `hf:image-form-submit`. Do not pick buttons by title alone or by arbitrary coordinates/colors. Even when child element text is attached, as in the Korean button `생성하기` ("Generate") followed by a number, tell them apart by the ID inside the form. The Unlimited label may sit on a higher wrapper rather than the switch's parent. Type into the Lexical input box with native edit events and verify the full text including line breaks.
 
-로컬 테스트 성공을 실제 사이트 생성 성공이라고 설명하지 않는다. 실제 화면에 새 대기/생성 표시가 생겨야 접수 확인이며, 표시를 못 찾으면 미확인으로 기록하고 다음 항목으로 진행한다. 미확인을 성공으로 집계하지 않는다. 실제 이미지 완성은 사이트에서 확인한다.
+Do not describe a local test success as real-site generation success. A new queued/generating marker must appear on the real screen to count as accepted; if no marker is found, record it as unconfirmed and move on to the next item. Do not count unconfirmed as success. Check actual image completion on the site.
 
-실행 상태 회귀 테스트는 외부 패키지 없이 `node --test scripts/tests/runtime.test.cjs`로 실행한다. 한 번 테스트·중복 클릭·중단/재개·불확실 접수·무한/셔플·화면비 독립성을 검사한다.
-
+Run the run-state regression tests with no external packages via `node --test scripts/tests/runtime.test.cjs`. They check Test once, duplicate clicks, stop/resume, uncertain acceptance, infinite/shuffle, and independence from aspect ratio.

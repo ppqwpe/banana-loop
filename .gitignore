@@ -1,4 +1,4 @@
-# 쓰다가 생기는 것
+# made while working
 __pycache__/
 *.pyc
 *.tmp
@@ -7,7 +7,8 @@ __pycache__/
 node_modules/
 *.zip
 
-# 프로젝트별 산출물 — 레퍼 이미지 · 실행 파일 · 진단 기록은 올리지 않는다
+# per-project output: reference images, console files and diagnostics stay local
+paste_into_console.js
 콘솔에_붙여넣기.js
 cuts.json
 _prompts.json
@@ -17,6 +18,6 @@ higgsfield-diagnostics*.json
 *.jpeg
 *.webp
 
-# 로고와 안내 이미지는 올린다
+# logo and guide images are tracked
 !logo/**/*.png
 !docs/**/*.jpg

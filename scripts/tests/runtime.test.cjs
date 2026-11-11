@@ -29,7 +29,7 @@ test('actual exception after click is reported without an uncertainty lock',asyn
  const f=fixture();f.adapter.submit=(job,signal,attempt)=>{attempt();throw Error('after click');};await f.controller.run();assert.equal(f.controller.state.phase,'blocked');assert.equal(f.controller.state.cursor,1);assert.equal(f.controller.state.unconfirmed,1);
 });
 test('preflight failure reports useful status without submitting',async()=>{
- const f=fixture();f.adapter.inspect=()=>({ok:false,checks:[{ok:false,code:'EDITOR',detail:'입력창을 열어 주세요.'}]});await f.controller.run();assert.deepEqual(f.sent,[]);assert.equal(f.controller.state.phase,'blocked');assert.match(f.controller.state.message,/입력창/);
+ const f=fixture();f.adapter.inspect=()=>({ok:false,checks:[{ok:false,code:'EDITOR',detail:'Open the prompt box.'}]});await f.controller.run();assert.deepEqual(f.sent,[]);assert.equal(f.controller.state.phase,'blocked');assert.match(f.controller.state.message,/prompt box/);
 });
 test('first failure does not skip to later prompts',async()=>{
  const f=fixture();f.adapter.prepare=async()=>{throw Error('upload failed');};await f.controller.run();assert.equal(f.controller.state.cursor,0);assert.deepEqual(f.sent,[]);
@@ -74,7 +74,7 @@ test('responsive image changes preserve identity; replacement source does not',a
  const img={src:'original.png',currentSrc:'small.png',complete:true,naturalWidth:100};
  const refs=new ReferenceManager({thumbs:()=>[img]},'manual');await refs.prepare(1);
  img.currentSrc='large.png';assert.doesNotThrow(()=>refs.verify());
- img.src='replacement.png';assert.throws(()=>refs.verify(),/레퍼/);
+ img.src='replacement.png';assert.throws(()=>refs.verify(),/reference/);
 });
 test('thumbnail readiness follows the current node after rerender',async()=>{
  let img={src:'original.png',complete:false,naturalWidth:0};
@@ -127,9 +127,9 @@ test('unknown thrown values leave a usable error report',async()=>{
 
 test('invalid folder selection preserves previously connected files',()=>{
  const refs=new ReferenceManager({},'folder');const good={name:'01_good.png',size:20};refs.setFiles([good],[1]);
- assert.throws(()=>refs.setFiles([{name:'01_empty.png',size:0}],[1]),/빈/);
- assert.throws(()=>refs.setFiles([{name:'01_a.png'},{name:'01_b.png'}],[1]),/중복/);
- assert.throws(()=>refs.setFiles([{name:'02_b.png'}],[1]),/필요한/);
+ assert.throws(()=>refs.setFiles([{name:'01_empty.png',size:0}],[1]),/Empty/);
+ assert.throws(()=>refs.setFiles([{name:'01_a.png'},{name:'01_b.png'}],[1]),/Duplicate/);
+ assert.throws(()=>refs.setFiles([{name:'02_b.png'}],[1]),/required/);
  assert.equal(refs.files.get(1),good);
 });
 

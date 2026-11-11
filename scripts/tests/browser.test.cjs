@@ -1,11 +1,12 @@
 const {chromium}=require('playwright');
+// The mock page below copies Higgsfield's Korean UI on purpose (업로드, 생성하기, 대기 중) to test Korean-site matching.
 const fs=require('node:fs'),path=require('node:path'),assert=require('node:assert/strict');
 const core=fs.readFileSync(path.join(__dirname,'../../assets/engine.js'),'utf8');
 const ui=fs.readFileSync(path.join(__dirname,'../../assets/console-panel.js'),'utf8');
 const tempDir=fs.mkdtempSync(path.join(require('node:os').tmpdir(),'higgsfield-test-'));
 const png='iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8/x8AAwMCAO+a7x8AAAAASUVORK5CYII=';
 const fixture=`<!doctype html><meta charset="utf-8"><style>body{font:14px system-ui;background:#eceef1}form{position:fixed;bottom:20px;left:20px;width:560px;background:white;padding:15px;border:1px solid #ccc}fieldset{display:flex}.editor{min-height:70px;width:360px}.sr-only{position:absolute;width:1px;height:1px;clip:rect(0,0,0,0)}label{display:block;width:50px;height:50px;border:1px solid #ccc}button{padding:8px}#submit-holder{width:110px}.ref img{width:60px;height:60px}</style>
-<h2>로컬 검증 화면 · 외부 생성 요청 없음</h2><div id="results"></div>
+<h2>Local test page · no external generation requests</h2><div id="results"></div>
 <form id="image-form"><fieldset><div><div id="refs"></div><label>업로드<input class="sr-only" type="file" accept="image/png"></label><div style="display:none"><label><input type="file" accept="image/png"></label></div><div id="hf:tour-image-prompt" class="editor" contenteditable="true" data-lexical-editor="true" role="textbox"></div><button type="button" id="aspect">16:9</button><div id="toggle-wrap">Unlimited<button type="button"><button type="button" id="unlimited" role="switch" aria-checked="false">○</button></button></div></div><div id="submit-holder"><button id="hf:image-form-submit" type="submit"><div>생성하기<span>2</span></div></button></div></fieldset></form>
 <script>
 window.submitted=[];window.uploadNames=[];window.nativeEdits=0;window.serverPrompt='';
@@ -16,7 +17,7 @@ document.getElementById('hf:image-form-submit').onclick=()=>{submitted.push(serv
 window.addRef=()=>{const cell=document.createElement('div');cell.className='ref';cell.innerHTML='<img src="data:image/png;base64,${png}"><button type="button" aria-label="Remove image">×</button>';cell.querySelector('button').onclick=()=>cell.remove();document.querySelector('#refs').appendChild(cell);};
 document.querySelector('input[type=file]').onchange=e=>{uploadNames.push(e.target.files[0].name);addRef();};
 </script>`;
-const make=(mode='none',prompts={1:'First\nsecond line `x` ${literal} "quote" <b>text</b>',11:'Another prompt'})=>({reference:mode,infinite:false,shuffle:false,spec:{schema_version:1,mode:mode==='none'?'PROMPT_ONLY':'WITH_REF',project:'캐릭터 테스트',aspect:'site',stride:10,prompts}});
+const make=(mode='none',prompts={1:'First\nsecond line `x` ${literal} "quote" <b>text</b>',11:'Another prompt'})=>({reference:mode,infinite:false,shuffle:false,spec:{schema_version:1,mode:mode==='none'?'PROMPT_ONLY':'WITH_REF',project:'Character test',aspect:'site',stride:10,prompts}});
 (async()=>{
  const browser=await chromium.launch({headless:true,channel:'chrome'});let passed=0;
  try{
@@ -25,7 +26,7 @@ const make=(mode='none',prompts={1:'First\nsecond line `x` ${literal} "quote" <b
  async function reset(config=make()){await page.goto('https://higgsfield.ai/ko/ai/image');await page.addScriptTag({content:'window.module={exports:{}};'+core+';window.core=module.exports;delete window.module;'});await page.evaluate(c=>{window.config=c;},config);}
  async function mount(){await page.addScriptTag({content:'('+ui+')(window.core,window.config);'});}
  await reset(make('manual'));await page.evaluate(()=>addRef());await mount();
- assert.equal(await page.getByRole('button',{name:'일괄 시작',exact:true}).isEnabled(),true);passed++;
+ assert.equal(await page.getByRole('button',{name:'Start',exact:true}).isEnabled(),true);passed++;
  assert.equal(await page.getByRole('button',{name:/작동/}).count(),0);passed++;
  await page.screenshot({path:path.join(tempDir,'object-panel.png')});
  await page.evaluate(()=>hfConsole.run(true));
@@ -120,13 +121,13 @@ const make=(mode='none',prompts={1:'First\nsecond line `x` ${literal} "quote" <b
  });await mount();await page.evaluate(()=>hfConsole.controller.setFiles([new File(['x'],'01_a.png',{type:'image/png'})]));
  await page.evaluate(()=>hfConsole.run(true));assert.deepEqual(await page.evaluate(()=>uploadNames),['01_a.png']);assert.equal(await page.evaluate(()=>submitted.length),1);passed++;
  // Close means stop; reopening doesn't introduce a second controller or an OFF gate.
- await reset(make('none',{1:'Test'}));await mount();await page.getByRole('button',{name:'닫기 및 중단',exact:true}).click();await mount();assert.equal(await page.getByRole('button',{name:'일괄 시작',exact:true}).isEnabled(),true);passed++;
- await page.getByRole('button',{name:'접기',exact:true}).click();assert.equal(await page.getByRole('button',{name:'일괄 시작',exact:true}).isVisible(),false);await page.getByRole('button',{name:'펼치기',exact:true}).click();passed++;
+ await reset(make('none',{1:'Test'}));await mount();await page.getByRole('button',{name:'Close and stop',exact:true}).click();await mount();assert.equal(await page.getByRole('button',{name:'Start',exact:true}).isEnabled(),true);passed++;
+ await page.getByRole('button',{name:'Fold',exact:true}).click();assert.equal(await page.getByRole('button',{name:'Start',exact:true}).isVisible(),false);await page.getByRole('button',{name:'Unfold',exact:true}).click();passed++;
  await reset(make('none',{1:'Test'}));await page.setViewportSize({width:700,height:700});await mount();const box=await page.locator('#hf-skills-panel').evaluate(e=>({right:e.getBoundingClientRect().right,left:e.getBoundingClientRect().left}));assert.ok(box.left>=0&&box.right<=700);passed++;
  await reset(make('manual'));await page.evaluate(()=>addRef());await page.addScriptTag({content:'(function(){const module={exports:{}};'+core+';('+ui+')(module.exports,'+JSON.stringify(make('manual'))+');})();'});
  await page.evaluate(()=>hfConsole.run(true));assert.equal(await page.evaluate(()=>submitted.length),1);assert.equal(await page.evaluate(()=>hfConsole.version),'0.3.2-alpha.6');passed++;
- await page.getByText('진행 기록 · 진단',{exact:true}).click();
- const savedReport=page.waitForEvent('download');await page.getByRole('button',{name:'진단 저장',exact:true}).click();
+ await page.getByText('Log · diagnostics',{exact:true}).click();
+ const savedReport=page.waitForEvent('download');await page.getByRole('button',{name:'Save diagnostics',exact:true}).click();
  const reportDownload=await savedReport;const report=JSON.parse(fs.readFileSync(await reportDownload.path(),'utf8'));
  assert.equal(report.version,'0.3.2-alpha.6');assert.equal(report.state.accepted,1);passed++;
  for(const width of [700,1024,1920]){

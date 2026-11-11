@@ -1,6 +1,6 @@
 {
  "name": "product",
- "title": "제품·오브젝트 — 패키지·기기·단품",
+ "title": "Products & objects — packaging, devices, single items",
  "kinds": [
   "hero",
   "group",
@@ -151,7 +151,6 @@
  "modes": [
   {
    "letter": "A",
-   "kor": "테이블탑",
    "name": "tabletop hero",
    "life": "calm",
    "direction": "The straight commercial hero frame a tabletop photographer builds on a sweep. Describe the object honestly and legibly rather than dramatise it.",
@@ -185,7 +184,6 @@
   },
   {
    "letter": "B",
-   "kor": "정면팩샷",
    "name": "square packshot",
    "life": "none",
    "direction": "The clean elevation the client puts on the page. Nothing is interpreted — the object sits square to the sensor, level, evenly lit and completely legible.",
@@ -219,7 +217,6 @@
   },
   {
    "letter": "C",
-   "kor": "부감플랫",
    "name": "overhead flat-lay",
    "life": "calm",
    "direction": "Treat the object as pure geometry seen from directly above. Shape, edge and colour carry the frame and the surface becomes a flat graphic field.",
@@ -253,7 +250,6 @@
   },
   {
    "letter": "D",
-   "kor": "하드섀도",
    "name": "hard single source",
    "life": "none",
    "direction": "One hard light and nothing else. The shadow is the graphic — the object is described by a single sharp edge of light and the black it throws across the ground.",
@@ -287,7 +283,6 @@
   },
   {
    "letter": "E",
-   "kor": "극단접사",
    "name": "extreme macro",
    "life": "calm",
    "direction": "Go closer than the eye ever does. One feature fills the frame — a seam, a thread, a weave, a knurl — and the material itself becomes the subject.",
@@ -321,7 +316,6 @@
   },
   {
    "letter": "F",
-   "kor": "저각히어로",
    "name": "low wide hero",
    "life": "busy",
    "direction": "Shoot the object from below as if it were architecture. The camera sits on the deck centimetres from the base, the near edge looms and the product towers into the top of frame.",
@@ -355,7 +349,6 @@
   },
   {
    "letter": "G",
-   "kor": "손사용컷",
    "name": "in hand, in use",
    "life": "busy",
    "direction": "Put the object in a working hand in a real room. The frame is about the act of using it — grip, scale, the way a body meets the object — not about the thing standing still.",
@@ -389,7 +382,6 @@
   },
   {
    "letter": "H",
-   "kor": "현장정물",
    "name": "where it lives",
    "life": "calm",
    "direction": "Photograph the object where it actually sits when nobody is using it — the counter, the bench, the passenger seat, the shelf. The room is half the picture and it explains what the thing is for.",

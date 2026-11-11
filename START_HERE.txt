@@ -1,0 +1,26 @@
+Banana Loop · Quick Start
+
+1. Hand over your materials.
+Give the agent the whole skill folder plus your materials, and have it read the skill first.
+
+2. Say what you want to make.
+Once the job is prepared, ask the agent to build the file you paste into the console.
+Supported: text only / one reference kept / a reference folder swapped in order.
+
+3. Paste the file.
+On Higgsfield, set the model, aspect ratio and number of outputs.
+Open paste_into_console.js in Notepad and copy all of it.
+F12 -> Console -> paste -> Enter.
+Only if a paste-blocking warning appears: check the code, then type allow pasting yourself.
+
+4. Test, then run.
+If you use several references, connect the image folder.
+Check with Test once, then Resume.
+Fold keeps the run going; Stop and Close and stop block further requests.
+
+Good to know
+- Alpha version, verified on Windows Chrome / Nano Banana Pro.
+- Needs an agent that can read files and run code, and Unlimited access.
+- Keep the tab open and turn off computer sleep. Reloading the page does not resume automatically.
+- Accepted is not the same as finished. Combining several references at once and automatic download are not supported.
+- If an error occurs, save from Log · diagnostics and send it to the agent together with a screenshot.

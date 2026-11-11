@@ -41,7 +41,7 @@ def rename_plan(files, renumber=False):
     parsed = [(p, NAME_RX.match(p.name)) for p in files]
     ids = [int(m[1]) for _, m in parsed if m]
     if not renumber and (len(ids) != len(set(ids)) or any(n < 1 for n in ids)):
-        raise ValueError('번호 중복/0번이 있습니다. --renumber로 전체 변경안을 확인하세요.')
+        raise ValueError('Duplicate numbers or a 0 number. Check the full plan with --renumber.')
     next_id = max(ids, default=0) + 1
     parsed.sort(key=lambda pair: (int(pair[1][1]) if pair[1] else 1000, pair[0].name.casefold()))
     plan = []
@@ -54,8 +54,9 @@ def rename_plan(files, renumber=False):
             number = next_id
             next_id += 1
         if not 1 <= number <= 999:
-            raise ValueError('레퍼 번호는 1~999까지 지원합니다.')
+            raise ValueError('Reference numbers must be 1-999.')
         slug = match[2] if match else path.stem
+        # Hangul stays in slugs so Korean file names remain readable.
         slug = re.sub(r'[^\w가-힣-]+', '_', slug).strip('_') or 'cut'
         target = path.with_name(f'{number:02d}_{slug}{path.suffix}')
         if target != path:
@@ -67,10 +68,10 @@ def apply_renames(plan):
     sources = {str(src).casefold() for src, _ in plan}
     targets = [str(dst).casefold() for _, dst in plan]
     if len(targets) != len(set(targets)):
-        raise ValueError('변경 대상 이름이 중복됩니다.')
+        raise ValueError('Two files would get the same name.')
     for _, target in plan:
         if target.exists() and str(target).casefold() not in sources:
-            raise ValueError(f'기존 파일을 덮어쓸 수 없습니다: {target.name}')
+            raise ValueError(f'Will not overwrite an existing file: {target.name}')
     staged, committed = [], []
     try:
         for source, target in plan:
@@ -79,7 +80,7 @@ def apply_renames(plan):
             staged.append((source, temp, target))
         for source, temp, target in staged:
             if target.exists():
-                raise ValueError(f'작업 중 대상 파일이 생겼습니다: {target.name}')
+                raise ValueError(f'A target file appeared during the rename: {target.name}')
             temp.rename(target)
             committed.append((source, temp, target))
     except Exception:
@@ -96,15 +97,15 @@ def main():
     ap.add_argument('folder', type=Path)
     ap.add_argument('--preset', default='industrial')
     ap.add_argument('--out', type=Path)
-    ap.add_argument('--rename', action='store_true', help='규칙 미준수 파일의 변경안만 출력')
-    ap.add_argument('--renumber', action='store_true', help='전체 파일을 1..N으로 다시 번호 지정')
-    ap.add_argument('--apply', action='store_true', help='이름 변경안 실행')
+    ap.add_argument('--rename', action='store_true', help='print the rename plan for files that break the naming rule')
+    ap.add_argument('--renumber', action='store_true', help='renumber every file 1..N')
+    ap.add_argument('--apply', action='store_true', help='apply the rename plan')
     args = ap.parse_args()
     if args.apply and not (args.rename or args.renumber):
-        ap.error('--apply에는 --rename 또는 --renumber가 필요합니다.')
+        ap.error('--apply needs --rename or --renumber.')
     folder = args.folder.expanduser().resolve()
     if not folder.is_dir():
-        ap.error('이미지 폴더가 없습니다.')
+        ap.error('Image folder not found.')
     preset_path = Path(args.preset)
     if not preset_path.is_file():
         preset_path = Path(__file__).parent / 'axes' / (args.preset + '.json')
@@ -115,15 +116,15 @@ def main():
     files = sorted((p for p in folder.iterdir() if p.is_file() and p.suffix.lower() in EXT),
                    key=lambda p: p.name.casefold())
     if not files:
-        ap.error('지원하는 이미지 파일이 없습니다.')
+        ap.error('No supported image files.')
     if len(files) > 999:
-        ap.error('한 폴더에서 최대 999장까지 지원합니다.')
+        ap.error('At most 999 images per folder.')
     if args.rename or args.renumber:
         plan = rename_plan(files, args.renumber)
         for source, target in plan:
             print(f'{source.name} -> {target.name}')
         if not args.apply:
-            print(f'변경안 {len(plan)}개. 파일 및 cuts.json은 변경하지 않았습니다. --apply로 실행하세요.')
+            print(f'{len(plan)} renames planned. Files and cuts.json are unchanged. Run with --apply to do it.')
             return
         apply_renames(plan)
         mapping = {src.name: dst.name for src, dst in plan}
@@ -134,11 +135,11 @@ def main():
     for path in files:
         match = NAME_RX.match(path.name)
         if not match or not 1 <= int(match[1]) <= 999:
-            problems.append(f'파일명 규칙 오류: {path.name}')
+            problems.append(f'Name does not follow the rule: {path.name}')
             continue
         number, slug = int(match[1]), match[2]
         if str(number) in cuts:
-            problems.append(f'번호 {number} 중복: {cuts[str(number)]["file"]}, {path.name}')
+            problems.append(f'Number {number} used twice: {cuts[str(number)]["file"]}, {path.name}')
             continue
         cut = dict(previous.get(path.name, {}))
         cut.update(file=path.name, slug=slug)
@@ -147,29 +148,29 @@ def main():
                                      spec.get('default_kind', spec['kinds'][-1]))
         cuts[str(number)] = cut
     if problems:
-        raise ValueError('\n'.join(problems) + '\ncuts.json은 변경하지 않았습니다.')
+        raise ValueError('\n'.join(problems) + '\ncuts.json was not changed.')
     seen = {}
     try:
         from PIL import Image
     except ImportError:
         Image = None
-        print('참고: Pillow 미설치로 해상도 검사를 생략합니다. pip install Pillow')
+        print('Note: Pillow is not installed, so the resolution check is skipped. pip install Pillow')
     for cut in cuts.values():
         path = folder / cut['file']
         digest = sha(path)
         if digest in seen:
-            print(f'내용 동일: {path.name} / {seen[digest]}')
+            print(f'Identical content: {path.name} / {seen[digest]}')
         seen[digest] = path.name
         if Image:
             with Image.open(path) as im:
                 cut['size'] = list(im.size)
     gaps = sorted(set(range(1, max(map(int, cuts)) + 1)) - set(map(int, cuts)))
     if gaps:
-        print(f'번호 공백: {gaps}. 엔진은 공백을 지원합니다. 연속 번호가 필요하면 --renumber를 쓰세요.')
+        print(f'Gaps in numbering: {gaps}. The engine handles gaps; use --renumber if you want them continuous.')
     payload = {'folder': str(folder), 'preset': spec['name'],
                'cuts': dict(sorted(cuts.items(), key=lambda pair: int(pair[0])))}
     write_json(out, payload)
-    print(f'저장: {out} / {len(cuts)}컷. 이미지를 보고 entity를 영어로 채워 주세요.')
+    print(f'Saved: {out} / {len(cuts)} cuts. Look at each image and fill in entity in English.')
 
 
 if __name__ == '__main__':

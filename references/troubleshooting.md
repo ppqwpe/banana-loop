@@ -1,31 +1,31 @@
-# 배치 실행 문제 해결
+# Batch run troubleshooting
 
-오류 보고는 [환경별 진행과 응답 틀](agent-workflow.md)의 오류 응답 순서를 따른다. 아래 조치는 가능한 점검 방향이며, 화면 관찰 없이 원인으로 확정하지 않는다.
+Error reports follow the error-response order in [progress by environment and response template](agent-workflow.md). The actions below are possible directions to check; do not assert any as the cause without observing the screen.
 
-| 증상 | 조치 |
+| Symptom | Action |
 |---|---|
-| Console에서 코드 붙여넣기가 차단됨 | 배포본 코드를 확인한 뒤, 붙여넣기 차단 경고의 안내에 따라 입력줄에 `allow pasting`을 직접 타이핑하고 Enter를 누른다. 이어서 엔진 코드를 붙여넣고 Enter를 누른다. 경고가 없으면 이 단계는 생략한다. |
-| Unlimited 토글 확인 실패 | 모델과 이용 가능한 모드를 사이트에서 확인한다. 토글이 없으면 실행하지 않는다. 다른 스위치를 대신 누르지 않는다. |
-| 입력창/Generate를 특정할 수 없음 | 다른 입력 모달을 닫고 Image 생성 화면인지 확인한다. 여러 후보 중 임의 선택하지 않는다. |
-| 레퍼 삭제 실패 | 사이트에서 이전 레퍼를 직접 지우고 다시 시작한다. 이 버전은 React 내부 상태 변경·광범위한 좌표 클릭을 사용하지 않는다. |
-| 업로드는 됐지만 레퍼가 안 붙음 | 현재 사이트는 Assets 목록에 업로드한 뒤 새 카드를 선택해야 생성 폼에 붙는다. 현재 엔진은 이 단계를 처리한다. 새 카드가 여러 장이면 임의 선택하지 않는다. |
-| 기존 이미지가 남아 있음 | 생성 폼의 레퍼 제거 버튼으로 분리한다. Assets 목록의 Delete는 저장 자산 삭제이므로 누르지 않는다. |
-| 업로드 실패 | 다음 파일과 첨부 메뉴를 먼저 확인한다. 업로드·첨부 확인은 최대 60초 기다리며, 실패 시 오류를 표시한다. 파일을 무조건 반복 업로드하지 않는다. |
-| 프롬프트 입력 실패 | 표시 문자열 불일치와 사이트 내부 입력 상태 미반영을 구분한다. 입력 이벤트와 실제 생성 시 오류를 확인한다. 길이가 원인이라는 증거 없이 프롬프트를 줄이거나 나누지 않는다. |
-| 업로드 입력칸 0개 | 첨부 버튼을 눌러야 입력이 생기는지, 메뉴 또는 폼 밖에 있는지 실제 화면을 확인한다. 숨김 입력 때문이라고 단정하지 않는다. 다음 파일과 업로드 경로 확인 전 기존 레퍼부터 삭제하지 않는다. |
-| `inputs` 등 중복 선언 | 실제 실행 코드와 전달본·버전을 대조한다. 전달본 문법 검사만으로 붙여넣기 실수라고 단정하지 않는다. |
-| 사이트에 429 또는 CSP 오류 | 자동화 동작 실패와 관련된 요청인지 확인한다. 해당 로그만으로 업로드·입력 오류의 원인을 확정하지 않는다. |
-| 접수 표시 미확인 | 미확인으로 기록하고 다음 항목으로 진행한다. 실제 결과는 사이트 이력에서 확인한다. |
-| 인터넷 연결 끊김 | 연결 복구 후 이어서 실행한다. 준비 단계에서 오프라인이면 레퍼·프롬프트를 변경하기 전에 멈춘다. 전송 도중 끊겼다면 미확인 기록과 사이트 이력을 대조한다. |
-| 예상하지 못한 오류 | 진행 기록 · 진단에서 저장한다. lastError의 code·stage·ref·slot과 해당 entry를 보고 실패 지점을 찾는다. 오류 전 이미 접수된 항목을 다시 보내지 않는다. |
-| 큐 대기 시간 초과 | 최대 5분 대기 후 멈춘다. 사이트의 큐를 확인한 뒤 이어서 시작한다. |
-| 번호 중복 | 같은 번호의 파일을 다른 번호로 바꾸거나 `--renumber` 변경안을 검토한다. |
-| 조합 용량 초과 | 컷·변형 수를 줄이거나 프리셋의 looks/compo/finish/moment를 늘린다. 기존 출력은 보존한다. |
+| Pasting code in the Console is blocked | After checking the distributed code, follow the paste-blocking warning's instructions: type `allow pasting` yourself on the input line and press Enter. Then paste the engine code and press Enter. If there is no warning, skip this step. |
+| Unlimited toggle check fails | Check the model and the available modes on the site. If there is no toggle, do not run. Do not press a different switch instead. |
+| Cannot identify the input box/Generate | Close any other input modal and confirm this is the Image generation screen. Do not pick arbitrarily among several candidates. |
+| Reference deletion fails | Remove the previous reference yourself on the site and start again. This version does not change React internal state or use broad coordinate clicks. |
+| Upload succeeded but the reference is not attached | The current site attaches to the generation form only after you upload to the Assets list and select the new card. The current engine handles this step. If there are several new cards, do not pick arbitrarily. |
+| An old image remains | Detach it with the reference remove button on the generation form. Delete in the Assets list deletes a stored asset, so do not press it. |
+| Upload failure | First check the next file and the attach menu. Upload and attachment confirmation wait up to 60 seconds, and an error is shown on failure. Do not blindly upload the file again and again. |
+| Prompt input failure | Distinguish a displayed-string mismatch from the site's internal input state not being updated. Check the input events and the error at actual generation. Do not shorten or split the prompt without evidence that length is the cause. |
+| 0 upload input fields | Check on the actual screen whether the input only appears after pressing the attach button, or sits in a menu or outside the form. Do not assert it is a hidden input. Do not delete the existing reference first, before confirming the next file and upload path. |
+| Duplicate declarations such as `inputs` | Compare the code actually run with the delivered copy and version. Do not conclude it was a paste mistake from a syntax check of the delivered copy alone. |
+| 429 or CSP errors on the site | Check whether the request relates to the automation action failing. Do not settle on those logs alone as the cause of an upload or input error. |
+| Acceptance marker unconfirmed | Record as unconfirmed and move to the next item. Check the real result in the site history. |
+| Internet connection lost | Resume after the connection is restored. If offline during preparation, stop before changing references or prompts. If it dropped mid-send, compare the unconfirmed record with the site history. |
+| Unexpected error | Save from Log · diagnostics. Look at lastError's code, stage, ref and slot and the matching entry to find the failure point. Do not resend items already accepted before the error. |
+| Queue wait timeout | It waits up to 5 minutes, then stops. Check the site's queue, then Start again. |
+| Duplicate number | Change the file with the same number to another number, or review the `--renumber` proposal. |
+| Combination capacity exceeded | Reduce the number of cuts/variants or add more preset looks/compo/finish/moment. The existing output is preserved. |
 
-실행 중 사이트의 모델·화면비·출력 수·레퍼나 다른 생성 버튼을 변경하지 않는다. `accepted`는 화면에서 새 Queued/Generating/Pending 항목을 본 것이다. 서비스의 최종 생성 성공과는 별개다. 접수 신호를 볼 수 없으면 미확인으로 기록하고 다음 항목으로 진행한다.
+While running, do not change the site's model, aspect ratio, number of outputs, reference, or other generate buttons. `accepted` means a new Queued/Generating/Pending item was seen on the screen. It is separate from the service's final generation success. If the acceptance signal cannot be seen, record it as unconfirmed and move to the next item.
 
-새로고침 전 기록을 저장한다. 기록 재가져오기와 이미지 다운로드는 지원하지 않는다. 기존 실행을 중단하고 수정 파일 전체를 붙여넣는다. 같은 페이지에서 프로젝트 데이터가 완전히 같으면 엔진은 기존 진행 위치와 연결 파일을 인계한다. 데이터 변경이나 새로고침 시에는 완료한 항목을 제외한 실행 파일을 에이전트가 준비해야 한다.
+Save the log before reloading. Re-importing the log and downloading images are not supported. Stop the existing run and paste the whole fixed file. If the project data on the same page is exactly the same, the engine hands over the existing progress position and connected files. On data changes or reload, the agent must prepare a run file that excludes completed items.
 
-## 결과물
+## Results
 
-모형처럼 보이면 focus·심도·카메라 높이를 확인한다. 변형이 비슷하면 카메라와 조명 축을 검토한다. 피사체 형태·로고·재질은 생성 후 확인한다. 프롬프트의 조합 고유성과 이미지 품질은 별도로 평가한다.
+If it looks like a miniature model, check focus, depth of field and camera height. If variants look similar, review the camera and lighting axes. Check subject shape, logos and materials after generation. Prompt combination uniqueness and image quality are evaluated separately.

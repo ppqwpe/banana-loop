@@ -1,0 +1,66 @@
+Banana Loop · Request examples to copy
+
+Change only the [work folder path] and the text in brackets, then send it in the agent chat.
+The sentences below are for chat. Only the finished JS file goes into the browser console.
+
+1. First time handing over the skill, images and a plan
+
+Read banana-loop/SKILL.md inside [work folder path] first.
+Look at the images and the plan/synopsis, and briefly tell me which materials
+there are and which ways of working are possible. Tell me if any material could not be read.
+What I want is [3 images of each background at different times of day].
+Keep the originals, and give me just one run file and what I need to do, briefly.
+
+2. Sorting the materials only
+
+Read the skill in this folder and look at the images and the synopsis.
+Decide the working order, and with the originals left untouched, copy them into
+a sorted_refs folder numbered like 01_name, 02_name. Keep the extensions.
+Briefly show original name -> new name -> reason for the order.
+Stop after sorting the folder for now.
+
+3. Text only
+
+Using the skill, prepare a run file that makes [4 images of a foggy forest].
+No reference; put the prompts in order only.
+Keep [the same place and camera composition] and vary only [the time of day].
+Turn off infinite loop and shuffle, and use the site's settings for aspect ratio and number of outputs.
+
+4. Changing outfit and hair from one character
+
+Using the skill, prepare 3 outfits and 3 hairstyles from the original of character 01.
+Keep face, body and art style, and use the same original every time.
+For outfit tests keep the hair as is, for hair tests keep the outfit as is.
+First give me a run file that tests only two requests: 1 outfit and 1 hairstyle.
+One character per image, front full body on the same background.
+
+Add this only if you need a character sheet:
+"This time make it a character sheet. Use the default layout: face close-up on the left,
+front full body in the center, rear full body on the right."
+
+5. Swapping several images from a folder in order
+
+Using the skill, prepare a test with images 01 and 02 in sorted_refs.
+First process 2 prompts [morning / evening] on original 01,
+then delete the current reference and process the same 2 on original 02.
+No image compositing; use one original at a time.
+Pick files automatically from the connected folder, and close the attachment list automatically too.
+Infinite loop and shuffle OFF; model, aspect ratio and number of outputs stay as the site has them.
+Tell me the one console run file with the prompts built in, and which folder to connect.
+
+6. After the test went well
+
+The test result is fine. Prepare [5 per image] the same way.
+[item name] has already been accepted, so leave it out of the new run list.
+Build with the skill's shared engine and tell me the one latest file to use.
+
+7. When an error occurs
+
+After pressing [button name] on [version], [error text] appeared.
+It is at [image number / prompt position] now, and the browser is [name].
+I'm attaching the diagnostics file and a screenshot of the input box and panel.
+Check the cause first by comparing the actual screen with the run file.
+Fix the existing skill so already accepted requests are not repeated.
+
+Where to save diagnostics: panel -> Log · diagnostics -> Save diagnostics.
+Before sending it to the agent, check that the file name and project name contain nothing you must not share.

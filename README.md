@@ -6,7 +6,7 @@
 </picture>
 
 An agent skill that repeats image generations on Higgsfield (Nano Banana and other image models).
-The agent writes the prompts and packs them into one file, `콘솔에_붙여넣기.js`; you paste that file into the browser console and it runs the batch for you.
+The agent writes the prompts and packs them into one file, `paste_into_console.js`; you paste that file into the browser console and it runs the batch for you.
 
 ![Folder mode: the next reference is uploaded, picked and attached, then the prompts for it are sent](docs/demo.gif)
 
@@ -37,12 +37,12 @@ Needs Python 3.9+, a Higgsfield account and Unlimited access for the model you u
 
 ## Using it
 
-1. Tell the agent what you want and where your material is (a reference folder, cut notes …). [요청_예시.txt](요청_예시.txt) has requests you can copy.
-2. Open the `콘솔에_붙여넣기.js` it gives you in Notepad and copy all of it.
+1. Tell the agent what you want and where your material is (a reference folder, cut notes …). [REQUEST_EXAMPLES.txt](REQUEST_EXAMPLES.txt) has requests you can copy.
+2. Open the `paste_into_console.js` it gives you in Notepad and copy all of it.
 3. On the Higgsfield image page, set the model, aspect ratio and output count, open `F12 → Console`, paste and press Enter.
-4. Press **한 번 테스트** (single test) in the panel, check the result, then **일괄 시작** (start). For the folder mode press **이미지 폴더 연결** (connect folder) first.
+4. Press **Test once** in the panel, check the result, then **Start**. For the folder mode press **Connect image folder** first.
 
-The Korean quick start is [처음_시작하기.txt](처음_시작하기.txt).
+The short version is in [START_HERE.txt](START_HERE.txt).
 
 ### Illustrated guide (Korean)
 
@@ -103,5 +103,5 @@ The logo uses the same ALIENMEOW head as Framing and Griding (`logo/source/alien
 
 - "Accepted" means a new queued/generating marker appeared on the site, not that the image finished.
 - Keep the tab open and sleep off while it runs. A page refresh does not resume on its own.
-- If something fails, save `진행 기록 · 진단` (log · diagnostics) from the panel and show it to the agent.
+- If something fails, save it from **Log · diagnostics** in the panel and show it to the agent.
 - Check Higgsfield's terms of service yourself before automating; use at your own risk. This project is not affiliated with Higgsfield.

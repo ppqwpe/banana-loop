@@ -1,6 +1,6 @@
 {
  "name": "space",
- "title": "공간·건축 — 매장·오피스·주거·호텔",
+ "title": "Spaces & architecture — shops, offices, homes, hotels",
  "kinds": [
   "ext",
   "int",
@@ -151,7 +151,6 @@
  "modes": [
   {
    "letter": "A",
-   "kor": "정투2점",
    "name": "two-point elevation",
    "life": "calm",
    "direction": "The standard architectural record frame — two wall planes meeting, the room described accurately enough to be measured from. Correct, calm, and built on discipline rather than effect.",
@@ -185,7 +184,6 @@
   },
   {
    "letter": "B",
-   "kor": "일점축",
    "name": "one-point axis",
    "life": "none",
    "direction": "Look straight down the length of the space along its own axis, one vanishing point dead centre. The room is presented rather than observed — formal, symmetrical, immaculate.",
@@ -219,7 +217,6 @@
   },
   {
    "letter": "C",
-   "kor": "코너광각",
    "name": "corner wide coverage",
    "life": "busy",
    "direction": "Back into the corner and take the whole place in one frame. The job is coverage — every zone, every level, and how the parts of the plan connect to each other.",
@@ -253,7 +250,6 @@
   },
   {
    "letter": "D",
-   "kor": "비네트",
    "name": "arranged vignette",
    "life": "none",
    "direction": "Photograph one part of the place as a still life — a single grouping, a long lens, everything placed and nothing accidental. Quiet, close, and deliberately incomplete about the room around it.",
@@ -287,7 +283,6 @@
   },
   {
    "letter": "E",
-   "kor": "개구부너머",
    "name": "through the opening",
    "life": "calm",
    "direction": "Shoot the space from outside it, through a real opening — a doorway, an arch, a glazed partition, a deep window reveal. The near frame is dark and the space beyond is bright, so the image reads in layers rather than flat.",
@@ -321,7 +316,6 @@
   },
   {
    "letter": "F",
-   "kor": "보행시점",
    "name": "walkthrough at eye height",
    "life": "busy",
    "direction": "Move through the place the way a visitor does rather than the way a photographer sets up. Handheld at eye height, tipped where a person would tip it, with the verticals deliberately allowed to converge.",
@@ -355,7 +349,6 @@
   },
   {
    "letter": "G",
-   "kor": "트와일라잇",
    "name": "twilight balance",
    "life": "calm",
    "direction": "The twilight frame, shot in the ten minutes when the interior lights and the sky sit at the same brightness. The building glows from inside and still stands in a sky that has colour left in it.",
@@ -389,7 +382,6 @@
   },
   {
    "letter": "H",
-   "kor": "평면부감",
    "name": "plan-like overhead",
    "life": "busy",
    "direction": "Look straight down and read the place as a plan. Floor, furniture layout, circulation and pattern flatten into a graphic composition where rhythm carries the frame.",

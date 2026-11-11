@@ -1,43 +1,43 @@
-# 배포 검증 · 0.3.2-alpha.6
+# Release verification · 0.3.2-alpha.6
 
-alpha.6은 엔진 내부 수정만 담았다. 무한 반복에서 회전이 바뀔 때 마지막 원본을 먼저 이어 써서 재업로드를 줄이고, 오류 기록 경로를 정리했다. 프롬프트 빌더는 조합 탐색을 축 값으로만 하도록 바꿨다. 출력은 alpha.5와 바이트 단위로 같음을 4개 프리셋에서 확인했다. 사이트 DOM 처리는 바뀌지 않았으므로 아래 실제 접수 기록은 alpha.5 기준이다.
+alpha.6 contains only engine-internal changes. In infinite repeat, when the round changes it reuses the last original first to reduce re-uploads, and the error-logging path was tidied. The prompt builder was changed to search combinations using axis values only. Output was confirmed byte-for-byte identical to alpha.5 on the 4 presets. The site DOM handling did not change, so the actual acceptance records below are from alpha.5.
 
-## 배포 형태
+## Distribution form
 
-`banana-loop` 폴더 전체가 배포 단위다. SKILL.md, assets, scripts, references를 함께 전달한다. 프로젝트 이미지·기획서·개인 실행 기록은 공통 배포본에 넣지 않는다. ZIP 설치 패키지나 별도 설정 앱은 필요하지 않다. 사용자는 `처음_시작하기.txt`부터 읽는다.
+The whole `banana-loop` folder is the distribution unit. Deliver SKILL.md, assets, scripts and references together. Project images, plans and personal run logs are not put in the shared distribution. No ZIP install package or separate setup app is needed. Users start by reading `START_HERE.txt`.
 
-알파 배포다. 이 폴더를 공유할 준비까지 완료한 것이며 GitHub 저장소용 README.md와 .gitignore를 포함한다. 프로젝트 이미지·실행 기록은 저장소에 올리지 않는다.
+This is an alpha release. Preparation to share this folder is complete, and it includes a README.md and .gitignore for the GitHub repository. Project images and run logs are not uploaded to the repository.
 
-## 구조
+## Structure
 
-| 담당 클래스 | 책임 |
+| Class | Responsibility |
 |---|---|
-| DomResolver | 현재 생성 폼·입력·버튼·업로드 목록 탐색 |
-| PromptEditor | 편집기 입력과 전체 텍스트 확인 |
-| ReferenceManager | 연결 파일·원본 유지·삭제·첨부 완료 확인 |
-| UnlimitedControl | 실제 Unlimited 스위치 확인 |
-| SubmissionMonitor | 대기열·사이트 오류·접수 표시 확인 |
-| BrowserAdapter | 한 요청의 준비와 제출 연결 |
-| BatchController | 순서·중단·재개·셔플·오류 기록 |
-| BatchPanel | 표시·폴더 선택·사용자 버튼 |
+| DomResolver | Finds the current generation form, input, buttons and upload list |
+| PromptEditor | Editor input and full-text confirmation |
+| ReferenceManager | Connected files, keeping the original, deletion, attachment-complete check |
+| UnlimitedControl | Checks the actual Unlimited switch |
+| SubmissionMonitor | Queue, site errors and acceptance marker check |
+| BrowserAdapter | Preparation and submission wiring for one request |
+| BatchController | Order, stop, resume, shuffle and error logging |
+| BatchPanel | Display, folder selection and user buttons |
 
-모든 프로젝트는 같은 엔진을 빌드한다. DOM 변경은 탐색/첨부 클래스를, 순서 문제는 컨트롤러를 수정한다. 프로젝트별 엔진 복사본을 따로 발전시키지 않는다.
+All projects build the same engine. For DOM changes fix the lookup/attach classes; for order problems fix the controller. Do not develop separate per-project copies of the engine.
 
-## 실제 확인
+## Actually checked
 
-2026-10-01, Windows / Chrome / 영어 Higgsfield Image / Nano Banana Pro / 16:9 / 2K / 출력 1장 / Unlimited.
+2026-10-01, Windows / Chrome / English Higgsfield Image / Nano Banana Pro / 16:9 / 2K / 1 output / Unlimited.
 
-- 빈 생성 폼에서 연결한 로컬 파일 첨부, 업로드 목록에서 자동 선택 후 닫기.
-- 레퍼 03 유지 후 레퍼 04로 제거·교체.
-- alpha.5 순차 레퍼: 원본 두 장, 첫 원본 요청 두 개와 다음 원본 요청 한 개를 접수 확인. 미확인 0.
-- 첫 요청의 한 번 테스트 후 이어서 실행: 최초 요청을 다시 전송하지 않음.
-- 같은 원본 유지 1회, 레퍼 없는 텍스트 생성 1회 접수 확인. 세 모드 합계 5회, 접수 미확인 0회. 테스트 패널은 완료 상태로 남기며 무한 반복은 실행하지 않았다.
+- On an empty generation form, attached a connected local file, auto-selected it in the upload list, then closed it.
+- Kept reference 03, then removed and replaced it with reference 04.
+- alpha.5 sequential references: two originals; two requests on the first original and one request on the next original confirmed accepted. 0 unconfirmed.
+- Test once on the first request, then Resume: the first request was not sent again.
+- Keeping the same original 1 time and text-only generation with no reference 1 time confirmed accepted. 5 across the three modes in total, 0 unconfirmed. The test panel was left in the finished state, and infinite repeat was not run.
 
-실제 다른 브라우저·운영체제·모델·화면비별 생성은 미검증이다. 접수는 화면에 새 대기/생성 항목이 나타난 것이며, 최종 이미지 품질이나 다운로드까지 보장하지 않는다.
+Generation on other actual browsers, operating systems, models and aspect ratios is unverified. Accepted means a new queued/generating item appeared on the screen; it does not guarantee final image quality or download.
 
-## 로컬 재현 검사
+## Local reproduction checks
 
-스킬 폴더에서 실행한다. 사용자는 이 개발 검사를 설치하거나 실행할 필요가 없다.
+Run from the skill folder. Users do not need to install or run these development checks.
 
 ```sh
 node --test scripts/tests/runtime.test.cjs
@@ -45,18 +45,18 @@ python scripts/tests/tooling_test.py
 node scripts/tests/browser.test.cjs
 ```
 
-마지막 검사는 Playwright 패키지와 설치된 Chrome이 있는 개발 환경에서 실행한다. 외부 서비스에 요청하지 않는 로컬 화면 모의 검사다. 앞 두 검사는 외부 패키지가 필요 없다.
+The last check runs in a development environment that has the Playwright package and installed Chrome. It is a local screen mock check that makes no requests to external services. The first two need no external packages.
 
-- 실행 상태 검사 28개: 중복 클릭, 중단 시점, 미확인 접수, 실패 후 재개, 폴더 변경 실패, 그룹 유지 셔플, 오프라인.
-- 브라우저 검사 37개: 세 모드, 네 화면비(16:9·3:4·9:16·1:1), 화면 너비 700·1024·1250·1920, 숨김/중복/폼 밖 입력, 늦게 열리고 닫히는 업로드 목록, 레퍼 제거 후 DOM 교체, 완성 실행 코드, 진단 파일 저장.
-- 제작 도구 검사 3개: 세 모드 빌드, 잘못된 입력 시 기존 출력 보존, 이름 충돌 방지와 확장자 유지.
+- 28 run-state checks: duplicate clicks, stop timing, unconfirmed acceptance, resume after failure, folder change failure, shuffle that keeps groups, offline.
+- 37 browser checks: three modes, four aspect ratios (16:9, 3:4, 9:16, 1:1), screen widths 700, 1024, 1250, 1920, hidden/duplicate/out-of-form inputs, upload list that opens and closes late, DOM replacement after reference removal, finished run code, saving the diagnostics file.
+- 3 build-tool checks: building the three modes, preserving the existing output on invalid input, preventing name collisions and keeping extensions.
 
-## 변경 후 최소 실제 점검
+## Minimum actual check after a change
 
-1. 테스트용 원본 두 장과 각 원본의 짧은 프롬프트를 준비한다.
-2. 빈 폼에서 폴더 연결 → 한 번 테스트 → 접수 확인.
-3. 이어서 실행 → 같은 원본 유지 → 다음 원본 교체 → 다음 접수 확인.
-4. 중단/재개, 메뉴 자동 닫힘, 원래 모델·비율·출력 수 유지 확인.
-5. 진단 기록과 실제 관찰 범위를 남긴 뒤 같은 빌더로 전달 파일을 갱신한다.
+1. Prepare two test originals and a short prompt for each original.
+2. On an empty form, Connect image folder -> Test once -> confirm accepted.
+3. Resume -> same original kept -> next original swapped -> next acceptance confirmed.
+4. Confirm stop/resume, automatic menu closing, and that the original model, ratio and number of outputs are kept.
+5. Leave the diagnostics log and the actual observed scope, then update the delivered file with the same builder.
 
-사이트가 변해 업로드나 버튼을 특정할 수 없으면 오류와 현재 위치를 남긴다. 임의 버튼 클릭이나 무제한 재전송으로 해결하지 않는다. 접수 표시만 미확인이면 기존 정책대로 미확인 기록 후 다음 항목으로 진행한다.
+If the site has changed so that the upload or a button cannot be identified, leave the error and the current position. Do not solve it by clicking arbitrary buttons or unlimited resending. If only the acceptance marker is unconfirmed, record it as unconfirmed and move to the next item per the existing policy.

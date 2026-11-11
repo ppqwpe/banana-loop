@@ -1,13 +1,13 @@
-"""Banana Loop 로고 만들기 — Framing · Griding 과 같은 ALIENMEOW 아이콘 계열
+"""Banana Loop logo — same ALIENMEOW icon family as Framing and Griding
 
-  logo/banana_loop_icon_{1024,512,256,128,64,32}.png   아이콘만 (투명 바탕)
-  logo/banana_loop_logo_dark.png · _light.png         아이콘 + 픽셀 글자 (어두운 · 밝은 바탕용, 투명)
-  logo/banana_loop_text_dark.png · _light.png         픽셀 글자만 — Loop 의 oo 는 빨강
+  logo/banana_loop_icon_{1024,512,256,128,64,32}.png   icon only (transparent)
+  logo/banana_loop_logo_dark.png · _light.png         icon + pixel wordmark (for dark / light backgrounds, transparent)
+  logo/banana_loop_text_dark.png · _light.png         pixel wordmark only; the oo in Loop is red
 
-재료: logo/source/alien_head.png (ALIENMEOW 캐릭터 머리 · 초록 바탕, Framing · Griding 과 같은 그림)
-  python tools/make_logo.py                    # 확정 스타일로 logo/ 를 다시 만든다
-  python tools/make_logo.py --drafts <폴더>    # 세 스타일 시안을 <폴더>에 나란히 뽑는다
-이 스크립트는 저장소 관리용이다. 스킬 사용(SKILL.md)과는 관계없다.
+Source: logo/source/alien_head.png (ALIENMEOW head on green, the same drawing as Framing and Griding)
+  python tools/make_logo.py                    # rebuild logo/ in the chosen style
+  python tools/make_logo.py --drafts <folder>  # render all three styles side by side into <folder>
+Repo upkeep only; the skill (SKILL.md) never uses it.
 """
 from __future__ import annotations
 
@@ -24,10 +24,10 @@ SLUG = "banana_loop"
 TILE, RED = (21, 24, 29, 255), (220, 40, 30, 255)
 BANANA, BANANA_SHADE, BANANA_TIP = (246, 211, 63, 255), (201, 160, 32, 255), (84, 58, 30, 255)
 S = 1024
-GRID = 64                  # 고리는 64×64 칸 픽셀로 그린다 — 머리 그림과 같은 도트 느낌
-STYLE = "banana"           # 확정 스타일
+GRID = 64                  # the ring is drawn on a 64×64 pixel grid to match the pixel-art head
+STYLE = "banana"           # chosen style
 
-# 픽셀 글자 — '#' = 글자색 · 'o' = 빨강 · '.' = 빈칸. 높이 9칸 (7칸 + 아래로 내려가는 2칸)
+# Pixel glyphs: '#' = text colour, 'o' = red, '.' = empty. 9 rows tall (7 + 2 for descenders)
 GLYPHS = {
     "B": ["####.", "#...#", "#...#", "####.", "#...#", "#...#", "####.", ".....", "....."],
     "a": [".....", ".....", ".###.", "....#", ".####", "#...#", ".####", ".....", "....."],
@@ -40,7 +40,7 @@ GLYPHS = {
 
 
 class PixelText:
-    """GLYPHS 로 쓴 각진 글자 — 한 칸 = cell px 정사각형"""
+    """Blocky text from GLYPHS; one cell = a cell-px square"""
 
     def __init__(self, text: str = "Banana Loop", gap: int = 1):
         self.text, self.gap = text, gap
@@ -65,7 +65,7 @@ class PixelText:
 
 
 class Ring:
-    """머리를 둘러싼 고리를 GRID 칸 단위로 칠한다. 각도는 12시 = 0°, 시계 방향으로 증가."""
+    """Paints the ring around the head on the GRID. Angles: 12 o'clock = 0°, increasing clockwise."""
 
     def __init__(self, radius: float = 0.37, start: float = 50, end: float = 345):
         self.r, self.start, self.end = radius * GRID, start, end
@@ -83,7 +83,7 @@ class Ring:
                 a = self._angle(x, y)
                 if not self.start <= a <= self.end:
                     continue
-                u = (a - self.start) / (self.end - self.start)     # 0 = 시작, 1 = 끝
+                u = (a - self.start) / (self.end - self.start)     # 0 = start, 1 = end
                 color = color_at(math.hypot(x, y) - self.r, u)
                 if color:
                     self.cells[(gx, gy)] = color
@@ -93,8 +93,8 @@ class Ring:
         return self
 
     def banana(self, width: float = 4.6) -> "Ring":
-        """가운데가 두껍고 끝으로 갈수록 가는 바나나 — 안쪽 가장자리는 그늘, 시작 꼭지는 갈색.
-        끝쪽은 화살촉이 붙으므로 너무 가늘어지지 않게 둔다."""
+        """A banana, thick in the middle and thinner toward the ends; shaded inner edge, brown stem at the start.
+        The far end carries the arrowhead, so it does not taper all the way."""
         def color_at(d, u):
             half = width / 2 * (0.35 + 0.65 * math.sin(math.pi * min(u, 0.75)) ** 0.6)
             if abs(d) > half:
@@ -106,12 +106,12 @@ class Ring:
         return self
 
     def arrow(self, size: float = 4.2, color=RED) -> "Ring":
-        """고리 끝(end 각도)에서 시계 방향으로 향하는 화살촉"""
+        """Arrowhead at the ring end (end angle), pointing clockwise"""
         t = math.radians(self.end)
         cx, cy = GRID / 2 + self.r * math.sin(t), GRID / 2 - self.r * math.cos(t)
-        fx, fy = math.cos(t), math.sin(t)          # 진행 방향 (시계 방향 접선)
-        nx, ny = math.sin(t), -math.cos(t)         # 바깥 방향
-        cx, cy = cx - fx * 0.5, cy - fy * 0.5      # 고리 끝과 겹쳐 틈이 없게
+        fx, fy = math.cos(t), math.sin(t)          # forward (clockwise tangent)
+        nx, ny = math.sin(t), -math.cos(t)         # outward
+        cx, cy = cx - fx * 0.5, cy - fy * 0.5      # overlap the ring end so there is no gap
         tip = (cx + fx * size * 1.1, cy + fy * size * 1.1)
         left = (cx + nx * size, cy + ny * size)
         right = (cx - nx * size, cy - ny * size)
@@ -137,20 +137,20 @@ class Ring:
 
 class Logo:
     STYLES = {
-        "loop":   ("빨강 루프 화살표", lambda: Ring().plain().arrow(5.5)),
-        "banana": ("바나나가 고리가 되고 끝에 빨강 화살촉", lambda: Ring(end=330).banana().arrow(5.5)),
-        "orbit":  ("아래쪽 반원 바나나 + 빨강 화살촉", lambda: Ring(start=120, end=320).banana(5.0).arrow(5.5)),
+        "loop":   ("red loop arrow", lambda: Ring().plain().arrow(5.5)),
+        "banana": ("banana bent into the ring, red arrowhead at the tip", lambda: Ring(end=330).banana().arrow(5.5)),
+        "orbit":  ("lower half-ring banana + red arrowhead", lambda: Ring(start=120, end=320).banana(5.0).arrow(5.5)),
     }
 
     def __init__(self, style: str = STYLE, head_path: Path = HEAD, head_scale: float = 0.44):
         if style not in self.STYLES:
-            raise SystemExit(f"스타일은 {', '.join(self.STYLES)} 중 하나입니다")
+            raise SystemExit(f"style must be one of {', '.join(self.STYLES)}")
         self.style, self.head_scale = style, head_scale
         self.head = self._cut_out(Image.open(head_path).convert("RGB"))
 
     @staticmethod
     def _cut_out(img: Image.Image) -> Image.Image:
-        """바탕 초록을 투명으로 · 목 아래(폭이 머리의 35% 아래로 좁아지는 곳)를 자른다 — Framing 과 같은 방식"""
+        """Green background to transparent; cut below the neck (where width drops under 35% of the head). Same as Framing."""
         a = np.asarray(img).astype(int)
         bg = np.median(a.reshape(-1, 3), 0)
         alpha = np.clip((np.abs(a - bg).sum(2) - 40) * 6, 0, 255).astype(np.uint8)
@@ -172,7 +172,7 @@ class Logo:
 
     @staticmethod
     def wordmark(icon: Image.Image, text_color) -> Image.Image:
-        """아이콘 + 픽셀 글자 가로형 (투명 바탕) — Framing 과 같은 비율"""
+        """Horizontal icon + pixel wordmark (transparent), same proportions as Framing"""
         h = 512
         cell = h // 14
         text = PixelText().render(cell, text_color)
@@ -197,7 +197,7 @@ class Logo:
 
 
 def drafts(folder: Path) -> list[Path]:
-    """스타일별 아이콘·워드마크 + 한 장에 모은 비교판"""
+    """Icon and wordmark per style, plus one comparison board"""
     folder.mkdir(parents=True, exist_ok=True)
     out, tiles = [], []
     for key in Logo.STYLES:
@@ -219,9 +219,9 @@ def drafts(folder: Path) -> list[Path]:
 
 
 if __name__ == "__main__":
-    ap = argparse.ArgumentParser(description="Banana Loop 로고")
+    ap = argparse.ArgumentParser(description="Banana Loop logo")
     ap.add_argument("--style", default=STYLE, choices=list(Logo.STYLES))
-    ap.add_argument("--drafts", type=Path, help="세 스타일 시안을 이 폴더에 뽑는다 (logo/ 는 건드리지 않음)")
+    ap.add_argument("--drafts", type=Path, help="render all three styles into this folder (logo/ is left alone)")
     args = ap.parse_args()
     for p in (drafts(args.drafts) if args.drafts else Logo(args.style).save_all()):
         print(p)

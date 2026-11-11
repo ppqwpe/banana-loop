@@ -1,6 +1,6 @@
 {
  "name": "people",
- "title": "인물·라이프스타일 — 작업자·팀·사용 장면",
+ "title": "People & lifestyle — workers, teams, product in use",
  "kinds": [
   "por",
   "work",
@@ -151,7 +151,6 @@
  "modes": [
   {
    "letter": "A",
-   "kor": "환경인물",
    "name": "formal environmental portrait",
    "life": "calm",
    "direction": "The considered portrait of one person in the place they actually work. Long lens, formal distance, the workplace present but held back behind them.",
@@ -185,7 +184,6 @@
   },
   {
    "letter": "B",
-   "kor": "정면프로필",
    "name": "flat frontal corporate register",
    "life": "none",
    "direction": "The frame that goes on the team page. Square-on, evenly lit, formal and legible, nothing happening around it.",
@@ -219,7 +217,6 @@
   },
   {
    "letter": "C",
-   "kor": "관찰기록",
    "name": "observed candid",
    "life": "busy",
    "direction": "Photograph the work as a documentary photographer standing inside it would — from a colleague's distance, unposed, nothing arranged for the lens. The subject is doing the job, not presenting it.",
@@ -253,7 +250,6 @@
   },
   {
    "letter": "D",
-   "kor": "어깨너머",
    "name": "over-the-shoulder into the task",
    "life": "busy",
    "direction": "Put the viewer directly behind the person and looking at what they are looking at. The near shoulder anchors the frame and the work is the brightest, sharpest thing in it.",
@@ -287,7 +283,6 @@
   },
   {
    "letter": "E",
-   "kor": "손끝디테일",
    "name": "hands-only insert",
    "life": "calm",
    "direction": "The cutaway that shows the work itself. Faces are cropped away above the frame and the whole story is carried by hands, tool and material.",
@@ -321,7 +316,6 @@
   },
   {
    "letter": "F",
-   "kor": "공간속인물",
    "name": "wide environmental scale",
    "life": "busy",
    "direction": "Show the workplace first and the person second. One figure small inside the volume of the room, giving the scale of everything around them.",
@@ -355,7 +349,6 @@
   },
   {
    "letter": "G",
-   "kor": "팀구성",
    "name": "group arrangement",
    "life": "calm",
    "direction": "Arrange several people so every one of them reads. Staggered depth, heads at different heights, nobody buried behind anybody else.",
@@ -389,7 +382,6 @@
   },
   {
    "letter": "H",
-   "kor": "역광실루엣",
    "name": "backlit silhouette",
    "life": "none",
    "direction": "Shoot straight into the light so the person reads as shape and edge rather than detail. Mood and outline carry the frame; the face stays as the reference has it, simply held in shadow.",
